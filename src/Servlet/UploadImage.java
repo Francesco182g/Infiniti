@@ -21,6 +21,7 @@ import org.apache.commons.fileupload.disk.DiskFileItemFactory;
 
 
 /**
+ * NON ATTIVA
  * Servlet implementation class UploadImage
  */
 @WebServlet("/UploadImage")

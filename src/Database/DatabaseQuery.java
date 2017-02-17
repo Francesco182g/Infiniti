@@ -22,26 +22,38 @@ public class DatabaseQuery {
 	private static String queryEliminaUtente;
 	private static String queryGetUtente;
 	private static String queryCambiaPassword;
+	
+	/*
+	 * Query gestione Prodotti 
+	 */
 	private static String queryAddProdotto;
 	private static String queryEliminaProdotto;
-	private static String queryAddCarrello;
 	private static String queryGetProdotti;
-	private static String queryGetMieiOrdini;
 	private static String queryCercaProdotto;
-	private static String queryOrdini;
 	private static String queryGetProdottoById;
-	private static String queryAddOrdine;
 	private static String queryGetProdottoByUser;
+	private static String queryGetNumeroProdotto;
 	
+	/*
+	 * Query gestione Ordini e Carrello
+	 */
+	private static String queryAddOrdine;
+	private static String queryGetMieiOrdini;
+	private static String queryOrdini;
+	private static String queryAddCarrello;
 	private static String queryGetCarrello;
 	private static String queryGetProdottiById;
 	private static String queryEliminaCarrello;
-	private static String queryGetNumeroProdotto;
-	
+
+	/*
+	 * Query Gestione Admin
+	 */
 	private static String queryGetUtenti;
 	private static String queryGetAdmin;
 	
-	
+	/*
+	 * ArrayList per le query
+	 */
 	private static ArrayList listProdotti;
 	private static ArrayList cercaProdotti;
 	private static ArrayList listCarrello;
@@ -510,6 +522,7 @@ public class DatabaseQuery {
 		return listProdotti;
 	}
 	
+	
 	/**
 	 * Ritorna la lista di tutti gli ordini di un utente nel DB
 	 * 
@@ -561,7 +574,14 @@ public class DatabaseQuery {
 		return listOrdini;
 	}
 
-
+	/**
+	 * Ritorna una lista di prodotti dal database data una keyword
+	 * 
+	 * @param nomeProdotto
+	 * @return ArrayList cercaProdotti
+	 * @throws SQLException
+	 * @author Francesco 
+	 */
 	public synchronized static ArrayList cercaProdotti(String nomeProdotto) throws SQLException{
 		Connection connection = null;
 		PreparedStatement psListProdotti= null;
@@ -606,6 +626,14 @@ public class DatabaseQuery {
 		return cercaProdotti;
 	}
 
+	/**
+	 * Ritorna un prodotto dato un id
+	 * 
+	 * @param idProdotto
+	 * @return Prodotto pr
+	 * @throws SQLException
+	 * @author Francesco 
+	 */
 	public synchronized static Prodotto getProdotto(int idProdotto) throws SQLException{
 		Connection connection = null;
 		PreparedStatement psGetProdotto= null;
@@ -683,6 +711,14 @@ public class DatabaseQuery {
 		return true;
 	}
 	
+	/**
+	 * Ritorna il carrello di un utente dato un idUtente
+	 * 
+	 * @param idUtente
+	 * @return ArrayList listCarrello
+	 * @throws SQLException
+	 * @author Francesco 
+	 */
 	public synchronized static ArrayList getCarrello(String idUtente) throws SQLException{
 		Connection connection = null;
 		PreparedStatement psListCarrello= null;
@@ -723,6 +759,14 @@ public class DatabaseQuery {
 		return listCarrello;
 	}
 	
+	/**
+	 * Ritorna il numero di prodotti che un utente ha nel carrello
+	 * 
+	 * @param idUtente
+	 * @return int valore
+	 * @throws SQLException
+	 * @author Francesco 
+	 */
 	public synchronized static int getCountCarrello(String idUtente) throws SQLException{
 		Connection connection = null;
 		PreparedStatement psGetNumCarrello= null;

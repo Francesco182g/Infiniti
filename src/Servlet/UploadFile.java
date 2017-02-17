@@ -19,6 +19,7 @@ import org.apache.tomcat.util.http.fileupload.disk.DiskFileItemFactory;
 import org.apache.tomcat.util.http.fileupload.servlet.ServletFileUpload;
 
 /**
+ * NON ATTIVA
  * Servlet implementation class Uploader
  */
 @WebServlet("/UploadFile")
