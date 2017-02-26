@@ -95,7 +95,7 @@
 				<p id="block1">
 					Questo è un sito creato solo a scopo illustrativo e didattico,
 					infatti non è possibile effettuare veri e propri acquisti ma solo
-					simularli. Sito creato da <a href="#tonno">Francesco Garofalo</a>
+					simularli. Sito creato da <a href="#tonno">Francesco Garofalo</a> in collaborazione con  <a href="#tonno">Anna Tomeo</a>
 				</p>
 				<p id="block2">
 					Questo sito è stato scritto in <strong>HTML5</strong>,<strong>CSS</strong>,<strong>JSP</strong>,
