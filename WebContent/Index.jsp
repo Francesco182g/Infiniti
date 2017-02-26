@@ -91,7 +91,7 @@
 			</aside>
 			<section id="content">
 				<!-- insert the page content here -->
-				<h1 id="go1">Benvenuti sullo store non ufficiale Red Bull Racing</h1>
+				<h1 id="go1">Benvenuti sul simulation store RBR</h1>
 				<p id="block1">
 					Questo è un sito creato solo a scopo illustrativo e didattico,
 					infatti non è possibile effettuare veri e propri acquisti ma solo
@@ -154,7 +154,7 @@
 		<footer></footer>
 		<section id="footer">
 			Copyright Template fornito da: &copy; colour_blue, WebApplication
-			creata da &copy; Francesco Garofalo | <a
+			creata da &copy; Francesco Garofalo con la collaborazione di Anna Tomeo | <a
 				href="http://validator.w3.org/check?uri=referer" name="tonno">HTML5</a>
 			| <a href="http://jigsaw.w3.org/css-validator/check/referer">CSS</a>
 			| <a href="AdminLogin.jsp">Accedi come Admin</a>
