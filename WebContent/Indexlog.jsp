@@ -18,14 +18,14 @@
 	response.addCookie(mioCookie);
 
 	*/
-	
-	int count = DatabaseQuery.getCountCarrello(utente.getEmail());
+	int count = 0;
 	
 	if (utente != null) {
-
 		
+		count = DatabaseQuery.getCountCarrello(utente.getEmail());
 	} else {
 		response.sendRedirect("Index.jsp");
+	
 	}
 	
 %>
@@ -41,8 +41,8 @@
 	content="text/html; charset=windows-1252" />
 <link rel="stylesheet" type="text/css" href="style/style.css"
 	title="style" />
-	<link rel="stylesheet" type="text/css" href="style/responsive.css"/>
-	
+<link rel="stylesheet" type="text/css" href="style/responsive.css" />
+
 </head>
 
 <body>
@@ -79,12 +79,16 @@
 				<!-- insert your sidebar items here -->
 				<h3>
 					Ciao
+					<%if(utente!= null) { %>
 					<%=utente.getNome()%>
-					<%=utente.getCognome()%></h3>
+					<%=utente.getCognome()%>
+					<%} %>
+				</h3>
 				<h4></h4>
 				<h5>14/02/2017</h5>
 				<p>
-					Il sito simula un e-commerce non inserire dati per pagamento.<br /> <a href="https://www.redbullshop.com/en/">Store Reale</a>
+					Il sito simula un e-commerce non inserire dati per pagamento.<br />
+					<a href="https://www.redbullshop.com/en/">Store Reale</a>
 				</p>
 				<p></p>
 				<h3>Collegamenti Utili</h3>
@@ -152,8 +156,8 @@
 		</section>
 		<footer></footer>
 		<section id="footer">
-			Template fornito da: &copy; colour_blue, WebApplication
-			creata da &copy; Francesco Garofalo| <a
+			Template fornito da: &copy; colour_blue, WebApplication creata da
+			&copy; Francesco Garofalo| <a
 				href="http://validator.w3.org/check?uri=referer" name="tonno">HTML5</a>
 			| <a href="http://jigsaw.w3.org/css-validator/check/referer">CSS</a>
 			| <a href="AdminLogin.jsp">Accedi come Admin</a>
