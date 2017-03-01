@@ -1,7 +1,6 @@
 package Servlet;
 
 import java.io.IOException;
-import java.math.BigDecimal;
 import java.sql.Date;
 import java.sql.SQLException;
 import java.time.LocalDate;
@@ -38,6 +37,7 @@ public class AcquistaProdottoServlet extends HttpServlet {
 	/**
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
+	@SuppressWarnings("unchecked")
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
 		HttpSession session = request.getSession();
@@ -58,6 +58,7 @@ public class AcquistaProdottoServlet extends HttpServlet {
 		int day = localDate.getDayOfMonth();
 		int mese = localDate.getMonthValue();
 		int year = localDate.getYear();
+		@SuppressWarnings("deprecation")
 		Date data = new Date(year, mese, day);
 		
 		ArrayList<Carrello> lista = new ArrayList<>();

@@ -19,7 +19,7 @@
 
 	String idUtente = utente.getEmail();
 	
-	int count = DatabaseQuery.getCountCarrello(utente.getEmail());
+	int count = (Integer) session.getAttribute("carrello");
 %>
 
 <!DOCTYPE HTML>

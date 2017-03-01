@@ -22,7 +22,7 @@
 	
 	if (utente != null) {
 		
-		count = DatabaseQuery.getCountCarrello(utente.getEmail());
+		count = (Integer) session.getAttribute("carrello");
 	} else {
 		response.sendRedirect("Index.jsp");
 	
@@ -158,7 +158,7 @@
 		<section id="footer">
 			Template fornito da: &copy; colour_blue, WebApplication creata da
 			&copy; Francesco Garofalo con la collaborazione di Anna Tomeo | <a
-				href="http://validator.w3.org/check?uri=referer" name="tonno">HTML5</a>
+				href="http://validator.w3.org/check?uri=referer">HTML5</a>
 			| <a href="http://jigsaw.w3.org/css-validator/check/referer">CSS</a>
 			| <a href="AdminLogin.jsp">Accedi come Admin</a>
 		</section>

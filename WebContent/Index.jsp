@@ -24,7 +24,7 @@
 <link rel="stylesheet" type="text/css" href="style/style.css"
 	title="style" />
 <link rel="stylesheet" href="style/responsive.css">
-  <script src="http://code.jquery.com/jquery-latest.js"></script>
+<script src=" "></script>
 </head>
 
 
@@ -95,7 +95,8 @@
 				<p id="block1">
 					Questo è un sito creato solo a scopo illustrativo e didattico,
 					infatti non è possibile effettuare veri e propri acquisti ma solo
-					simularli. Sito creato da <a href="#tonno">Francesco Garofalo</a> in collaborazione con  <a href="#tonno">Anna Tomeo</a>
+					simularli. Sito creato da <a href="#tonno">Francesco Garofalo</a>
+					in collaborazione con <a href="#tonno">Anna Tomeo</a>
 				</p>
 				<p id="block2">
 					Questo sito è stato scritto in <strong>HTML5</strong>,<strong>CSS</strong>,<strong>JSP</strong>,
@@ -117,7 +118,7 @@
 							src="style/search.png" alt="Search" title="Search" />
 					</p>
 				</form>
-							<script>
+				<script>
 					$("#go1").click(function() {
 						$("#block1").animate({
 							width : "90%"
@@ -154,10 +155,10 @@
 		<footer></footer>
 		<section id="footer">
 			Copyright Template fornito da: &copy; colour_blue, WebApplication
-			creata da &copy; Francesco Garofalo con la collaborazione di Anna Tomeo | <a
-				href="http://validator.w3.org/check?uri=referer" name="tonno">HTML5</a>
-			| <a href="http://jigsaw.w3.org/css-validator/check/referer">CSS</a>
-			| <a href="AdminLogin.jsp">Accedi come Admin</a>
+			creata da &copy; Francesco Garofalo con la collaborazione di Anna
+			Tomeo | <a href="http://validator.w3.org/check?uri=referer">HTML5</a> | <a
+				href="http://jigsaw.w3.org/css-validator/check/referer">CSS</a> | <a
+				href="AdminLogin.jsp">Accedi come Admin</a>
 		</section>
 	</section>
 </body>

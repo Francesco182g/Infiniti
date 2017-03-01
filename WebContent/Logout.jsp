@@ -7,10 +7,11 @@
 	if (utente != null) {
 		// SIMULA LA SESSIONE
 		//utente = new Utente("a","a","a","a",true,true);
-
+		
 	} else {
 		response.sendRedirect("Login.jsp");
 	}
+	int count = (Integer) session.getAttribute("carrello");
 %>
 
 <!DOCTYPE HTML>
@@ -43,7 +44,7 @@
 				<section id="top_menu">
 					<a href="Logout.jsp" class="login">logout</a> <a href="Profilo.jsp"
 						class="profilo">profilo</a> <a href="CarrelloLog.jsp"
-						class="carrello">carrello</a>
+						class="carrello"><STRONG><%=count%></STRONG> carrello</a>
 				</section>
 			</section>
 			<section id="menubar">

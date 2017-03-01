@@ -10,6 +10,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import Beans.Carrello;
 import Beans.Utente;
 import Database.DatabaseQuery;
 
@@ -55,6 +56,8 @@ public class LoginServlet extends HttpServlet {
 						
 						HttpSession session = request.getSession();
 						session.setAttribute("user", u);
+					int c = DatabaseQuery.getCountCarrello(Email);
+						session.setAttribute("carrello", c);
 						request.getRequestDispatcher("Indexlog.jsp").forward(request, response);
 				}
 				else

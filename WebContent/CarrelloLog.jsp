@@ -16,6 +16,7 @@ if (utente != null) {
 	String email = utente.getEmail();
 	ArrayList<Carrello> lista = new ArrayList<>();
 	lista = DatabaseQuery.getCarrello(email);
+	
 	System.out.println(lista);
 	ArrayList<Prodotto> prod = new ArrayList<>();
 
@@ -25,7 +26,7 @@ if (utente != null) {
 		
 	}
 	
-	int count = DatabaseQuery.getCountCarrello(utente.getEmail());
+	int count = (Integer) session.getAttribute("carrello");
 	
 	 
 %>
@@ -117,6 +118,7 @@ if (utente != null) {
 				</form>
 			</aside>
 			<section id="content">
+			<h2>PER MOTIVI DI SICUREZZA QUESTA SEZIONE NON È ATTIVA E NON È POSSIBILE SIMULARE IL PAGAMENTO...</h2>
 				<h2>
 					Ciao
 					<%=utente.getNome()%>, ecco i prodotti che hai aggiunto al
@@ -165,18 +167,18 @@ if (utente != null) {
 						<br>
 						<p>
 							<span>Pagamento</span><input class="contact" type="text"
-								name="pagamento" value="" />
+								name="pagamento" value="" placeholder="disattivata" readonly/>
 						</p>
 						<br>
 						<p>
 							<span>Indirizzo</span><input class="contact" type="text"
-								name="indirizzo" value="" />
+								name="indirizzo" value="" placeholder="disattivata" readonly />
 						</p>
 						<br>
 						<p>
 							<span>Note</span>
 							<textarea class="contact textarea" rows="8" cols="40"
-								name="descrizione"></textarea>
+								name="descrizione" placeholder="disattivata" readonly></textarea>
 						</p>
 						<br>
 						<p style="padding-top: 15px">
