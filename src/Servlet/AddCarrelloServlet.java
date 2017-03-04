@@ -52,6 +52,8 @@ public class AddCarrelloServlet extends HttpServlet {
 			try {
 				DatabaseQuery.addCarrello(idProdotto, user);
 				System.out.println("Servlet: Aggiungo al carrello " +user+ " id: " +idProdotto);
+				int c = DatabaseQuery.getCountCarrello(user);
+				session.setAttribute("carrello", c);
 				request.getRequestDispatcher("CarrelloLog.jsp").forward(request, response);
 			} catch (SQLException e) {
 				System.out.println("Impossibile aggiungere al carrello...");

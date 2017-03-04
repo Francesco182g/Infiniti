@@ -3,24 +3,21 @@
 
 <%
 	Utente utente = (Utente) session.getAttribute("user");
-
+	String visible = null;
+	int count = 0;
+	ArrayList<Prodotto> prodotti = new ArrayList<>();
 	if (utente != null) {
-		// SIMULA LA SESSIONE
-		//utente = new Utente("a","a","a","a",true,true);
+
+		visible = (String) request.getAttribute("vis");
+		prodotti = (ArrayList) request.getAttribute("listaProdotti");
+
+		String idUtente = utente.getEmail();
+
+		count = (Integer) session.getAttribute("carrello");
 
 	} else {
 		response.sendRedirect("Index.jsp");
 	}
-
-	ArrayList<Prodotto> prodotti = new ArrayList<>();
-
-	String visible = (String) request.getAttribute("vis");
-	prodotti = (ArrayList) request.getAttribute("listaProdotti");
-
-	String idUtente = utente.getEmail();
-	
-	int count = (Integer) session.getAttribute("carrello");
-
 %>
 
 <!DOCTYPE HTML>
@@ -34,8 +31,8 @@
 	content="text/html; charset=windows-1252" />
 <link rel="stylesheet" type="text/css" href="style/style.css"
 	title="style" />
-	<link rel="stylesheet" type="text/css" href="style/responsive.css"/>
-	
+<link rel="stylesheet" type="text/css" href="style/responsive.css" />
+
 <script type="text/javascript" src="js/jquery-3.1.1.js"></script>
 
 <!--  Controlla se un bottone è stato cliccato o meno e passa il valore submit -->
@@ -82,7 +79,8 @@
 				<h4></h4>
 				<h5>14/02/2017</h5>
 				<p>
-					Il sito simula un e-commerce non inserire dati per pagamento.<br /> <a href="https://www.redbullshop.com/en/">Store Reale</a>
+					Il sito simula un e-commerce non inserire dati per pagamento.<br />
+					<a href="https://www.redbullshop.com/en/">Store Reale</a>
 				</p>
 				<p></p>
 				<h3>Collegamenti Utili</h3>
@@ -145,18 +143,19 @@
 									//itera[i] = prodotti.get(i).getIdProdotto();
 						%>
 						<form action="AddCarrelloServlet" method="get">
-						<tr>
-							<td><img width="100" height="100"
-								src=<%=prodotti.get(i).getPath()%> alt="Img ND"></td>
-							<input size="3" name="prodott" type="hidden" value="<%=prodotti.get(i).getIdProdotto()%>"/>
-							<td><%=prodotti.get(i).getNome()%></td>
-							<td><%=prodotti.get(i).getPrezzo()%></td>
-							<td><%=prodotti.get(i).getQuantità()%></td>
-							<td><%=prodotti.get(i).getCondizione()%></td>
-							<td><%=prodotti.get(i).getTipo()%></td>
-							<td><input type="image" id="addcarr" name="submitta"
-								value="addcarr" src="style/carrello.png" /></td>
-						</tr>
+							<tr>
+								<td><img width="100" height="100"
+									src=<%=prodotti.get(i).getPath()%> alt="Img ND"></td>
+								<input size="3" name="prodott" type="hidden"
+									value="<%=prodotti.get(i).getIdProdotto()%>" />
+								<td><%=prodotti.get(i).getNome()%></td>
+								<td><%=prodotti.get(i).getPrezzo()%></td>
+								<td><%=prodotti.get(i).getQuantità()%></td>
+								<td><%=prodotti.get(i).getCondizione()%></td>
+								<td><%=prodotti.get(i).getTipo()%></td>
+								<td><input type="image" id="addcarr" name="submitta"
+									value="addcarr" src="style/carrello.png" /></td>
+							</tr>
 						</form>
 						<%
 							}
@@ -188,8 +187,8 @@
 	</section>
 	<footer></footer>
 	<section id="footer">
-			Template fornito da: &copy; colour_blue, WebApplication
-			creata da &copy; Francesco Garofalo con la collaborazione di Anna Tomeo|  <a
+		Template fornito da: &copy; colour_blue, WebApplication creata da
+		&copy; Francesco Garofalo con la collaborazione di Anna Tomeo| <a
 			href="http://validator.w3.org/check?uri=referer">HTML5</a> | <a
 			href="http://jigsaw.w3.org/css-validator/check/referer">CSS</a> | <a
 			href="http://www.html5webtemplates.co.uk">design from

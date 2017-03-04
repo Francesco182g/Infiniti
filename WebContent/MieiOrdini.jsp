@@ -5,22 +5,23 @@
 //NON ATTIVA!
 	Utente utente = (Utente) session.getAttribute("user");
 
+	ArrayList<Ordine> prodotti = new ArrayList<>();
+	String visible = null;
+	String idUtente = null;
+	int count = 0;
 	if (utente != null) {
-		// SIMULA LA SESSIONE
-		//utente = new Utente("a","a","a","a",true,true);
+		prodotti = (ArrayList) request.getAttribute("lista");
+		visible = (String) request.getAttribute("vis");
+		idUtente = utente.getEmail();
+		count = (Integer) session.getAttribute("carrello");
 
 	} else {
 		response.sendRedirect("Index.jsp");
 	}
 
-	ArrayList<Ordine> prodotti = new ArrayList<>();
 
-	String visible = (String) request.getAttribute("vis");
-	prodotti = (ArrayList) request.getAttribute("lista");
 
-	String idUtente = utente.getEmail();
 	
-	int count = (Integer) session.getAttribute("carrello");
 
 %>
 
@@ -35,8 +36,8 @@
 	content="text/html; charset=windows-1252" />
 <link rel="stylesheet" type="text/css" href="style/style.css"
 	title="style" />
-	<link rel="stylesheet" type="text/css" href="style/responsive.css"/>
-	
+<link rel="stylesheet" type="text/css" href="style/responsive.css" />
+
 <script type="text/javascript" src="js/jquery-3.1.1.js"></script>
 
 <!--  Controlla se un bottone è stato cliccato o meno e passa il valore submit -->
@@ -83,7 +84,8 @@
 				<h4></h4>
 				<h5>14/02/2017</h5>
 				<p>
-					Il sito simula un e-commerce non inserire dati per pagamento.<br /> <a href="https://www.redbullshop.com/en/">Store Reale</a>
+					Il sito simula un e-commerce non inserire dati per pagamento.<br />
+					<a href="https://www.redbullshop.com/en/">Store Reale</a>
 				</p>
 				<p></p>
 				<h3>Collegamenti Utili</h3>
@@ -110,7 +112,7 @@
 			</aside>
 			<section id="content">
 				<h2>I MIEI ORDINI</h2>
-				
+
 
 				<%
 					if (visible == "visible") {
@@ -137,15 +139,15 @@
 									//itera[i] = prodotti.get(i).getIdProdotto();
 						%>
 						<form action="AddCarrelloServlet" method="get">
-						<tr>
-							<td><%=prodotti.get(i).getIdOrdine() %></td>
-							<td><%=prodotti.get(i).getData()%></td>
-							<td><%=prodotti.get(i).getPagamento()%></td>
-							<td><%=prodotti.get(i).getIndirizzo()%></td>
-							<td><%=prodotti.get(i).getNote()%></td>
-							<td><%=prodotti.get(i).getPrezzo()%></td>
-							
-						</tr>
+							<tr>
+								<td><%=prodotti.get(i).getIdOrdine() %></td>
+								<td><%=prodotti.get(i).getData()%></td>
+								<td><%=prodotti.get(i).getPagamento()%></td>
+								<td><%=prodotti.get(i).getIndirizzo()%></td>
+								<td><%=prodotti.get(i).getNote()%></td>
+								<td><%=prodotti.get(i).getPrezzo()%></td>
+
+							</tr>
 						</form>
 						<%
 							}
@@ -163,14 +165,14 @@
 				<%
 					}
 				%>
-				
+
 			</section>
 		</section>
 	</section>
 	<footer></footer>
 	<section id="footer">
-			Template fornito da: &copy; colour_blue, WebApplication
-			creata da &copy; Francesco Garofalo con la collaborazione di Anna Tomeo|  <a
+		Template fornito da: &copy; colour_blue, WebApplication creata da
+		&copy; Francesco Garofalo con la collaborazione di Anna Tomeo| <a
 			href="http://validator.w3.org/check?uri=referer">HTML5</a> | <a
 			href="http://jigsaw.w3.org/css-validator/check/referer">CSS</a> | <a
 			href="http://www.html5webtemplates.co.uk">design from

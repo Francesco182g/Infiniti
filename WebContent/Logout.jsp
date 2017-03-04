@@ -3,15 +3,14 @@
 
 <%
 	Utente utente = (Utente) session.getAttribute("user");
-
+	int count = 0;
 	if (utente != null) {
-		// SIMULA LA SESSIONE
-		//utente = new Utente("a","a","a","a",true,true);
+		count = (Integer) session.getAttribute("carrello");
 		
 	} else {
 		response.sendRedirect("Login.jsp");
 	}
-	int count = (Integer) session.getAttribute("carrello");
+	
 %>
 
 <!DOCTYPE HTML>

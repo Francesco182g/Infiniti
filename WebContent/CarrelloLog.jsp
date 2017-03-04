@@ -5,30 +5,28 @@
 <%
 	Utente utente = (Utente) session.getAttribute("user");
 
-if (utente != null) {
-
-} else {	
-	
-	response.sendRedirect("Login.jsp");
-}
-
-
-	String email = utente.getEmail();
+	String email = null;
 	ArrayList<Carrello> lista = new ArrayList<>();
-	lista = DatabaseQuery.getCarrello(email);
-	
-	System.out.println(lista);
 	ArrayList<Prodotto> prod = new ArrayList<>();
-
-	for (int i = 0; i < lista.size(); i++) {
-		Prodotto p = DatabaseQuery.getProdotto(lista.get(i).getIdProdotto());
-		prod.add(p);
+	int count = 0;
+	if (utente != null) {
 		
+		email = utente.getEmail();
+		lista = DatabaseQuery.getCarrello(email);
+
+		System.out.println(lista);
+
+		for (int i = 0; i < lista.size(); i++) {
+			Prodotto p = DatabaseQuery.getProdotto(lista.get(i).getIdProdotto());
+			prod.add(p);
+		}
+
+		count = (Integer) session.getAttribute("carrello");
+
+	} else {
+
+		response.sendRedirect("Login.jsp");
 	}
-	
-	int count = (Integer) session.getAttribute("carrello");
-	
-	 
 %>
 
 <!DOCTYPE HTML>
@@ -42,9 +40,9 @@ if (utente != null) {
 	content="text/html; charset=windows-1252" />
 <link rel="stylesheet" type="text/css" href="style/style.css"
 	title="style" />
-	<link rel="stylesheet" type="text/css" href="style/responsive.css"/>
-	
-	<!--Ultima versione di jQuery (minified) -->
+<link rel="stylesheet" type="text/css" href="style/responsive.css" />
+
+<!--Ultima versione di jQuery (minified) -->
 <script src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
 <!-- Ultima versione di jquery.validate (minfied) -->
 <script
@@ -92,7 +90,8 @@ if (utente != null) {
 				<h4></h4>
 				<h5>14/02/2017</h5>
 				<p>
-					Il sito simula un e-commerce non inserire dati per pagamento.<br /> <a href="https://www.redbullshop.com/en/">Store Reale</a>
+					Il sito simula un e-commerce non inserire dati per pagamento.<br />
+					<a href="https://www.redbullshop.com/en/">Store Reale</a>
 				</p>
 				<p></p>
 				<h3>Collegamenti Utili</h3>
@@ -118,7 +117,8 @@ if (utente != null) {
 				</form>
 			</aside>
 			<section id="content">
-			<h2>PER MOTIVI DI SICUREZZA QUESTA SEZIONE NON È ATTIVA E NON È POSSIBILE SIMULARE IL PAGAMENTO...</h2>
+				<h2>PER MOTIVI DI SICUREZZA QUESTA SEZIONE NON È ATTIVA E NON È
+					POSSIBILE SIMULARE IL PAGAMENTO...</h2>
 				<h2>
 					Ciao
 					<%=utente.getNome()%>, ecco i prodotti che hai aggiunto al
@@ -167,7 +167,7 @@ if (utente != null) {
 						<br>
 						<p>
 							<span>Pagamento</span><input class="contact" type="text"
-								name="pagamento" value="" placeholder="disattivata" readonly/>
+								name="pagamento" value="" placeholder="disattivata" readonly />
 						</p>
 						<br>
 						<p>
@@ -210,10 +210,10 @@ if (utente != null) {
 		<footer></footer>
 		<section id="footer">
 			Copyright Template fornito da: &copy; colour_blue, WebApplication
-			creata da &copy; Francesco Garofalo con la collaborazione di Anna Tomeo| <a
-				href="http://validator.w3.org/check?uri=referer">HTML5</a> | <a
-				href="http://jigsaw.w3.org/css-validator/check/referer">CSS</a> | <a
-				href="http://www.html5webtemplates.co.uk">design from
+			creata da &copy; Francesco Garofalo con la collaborazione di Anna
+			Tomeo| <a href="http://validator.w3.org/check?uri=referer">HTML5</a>
+			| <a href="http://jigsaw.w3.org/css-validator/check/referer">CSS</a>
+			| <a href="http://www.html5webtemplates.co.uk">design from
 				HTML5webtemplates.co.uk</a>
 		</section>
 	</section>
