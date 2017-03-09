@@ -20,7 +20,7 @@
 				<section id="logo_text">
 					<!-- class="logo_colour", allows you to change the colour of the text -->
 					<h1>
-						<a href="Index.jsp"><span class="logo_colour"></span></a>
+						<a href="index.jsp"><span class="logo_colour"></span></a>
 					</h1>
 					<h2></h2>
 				</section>
@@ -34,7 +34,7 @@
 			<section id="menubar">
 				<ul id="menu">
 					<!-- put class="selected" in the li tag for the selected page - to highlight which page you're on -->
-					<li><a href="Index.jsp">Home</a></li>
+					<li><a href="index.jsp">Home</a></li>
 					<li><a href="Prodotti.jsp">Prodotti</a></li>
 					<li><a href="Registrati.jsp">Registrati</a></li>
 					<li class="selected"><a href="Login.jsp">Login</a></li>

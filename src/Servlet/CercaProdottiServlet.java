@@ -29,6 +29,7 @@ public class CercaProdottiServlet extends HttpServlet {
      */
     public CercaProdottiServlet() {
         super();
+        listProdotti = new ArrayList<Prodotto>();
         // TODO Auto-generated constructor stub
     }
 
@@ -41,9 +42,9 @@ public class CercaProdottiServlet extends HttpServlet {
 		
 		String nomeProdotto = request.getParameter("nomeProdotto");
 		try{
-			System.out.println("NomeProdotto:" +nomeProdotto);
+			//System.out.println("NomeProdotto:" +nomeProdotto);
 			listProdotti = DatabaseQuery.cercaProdotti(nomeProdotto);
-			System.out.println(listProdotti.toString());
+			//System.out.println(listProdotti.toString());
 			request.setAttribute("listaProdotti", listProdotti);
 			
 			

@@ -20,7 +20,7 @@
 				<section id="logo_text">
 					<!-- class="logo_colour", allows you to change the colour of the text -->
 					<h1>
-						<a href="Index.jsp"><span class="logo_colour"></span></a>
+						<a href="index.jsp"><span class="logo_colour"></span></a>
 					</h1>
 					<h2></h2>
 				</section>

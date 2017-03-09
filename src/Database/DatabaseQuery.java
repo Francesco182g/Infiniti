@@ -55,7 +55,7 @@ public class DatabaseQuery {
 	 * ArrayList per le query
 	 */
 	private static ArrayList listProdotti;
-	private static ArrayList cercaProdotti;
+	private static ArrayList<Prodotto> cercaProdotti;
 	private static ArrayList listCarrello;
 	private static ArrayList listProdCarrello;
 	private static ArrayList listOrdini;
@@ -585,7 +585,7 @@ public class DatabaseQuery {
 	public synchronized static ArrayList cercaProdotti(String nomeProdotto) throws SQLException{
 		Connection connection = null;
 		PreparedStatement psListProdotti= null;
-		cercaProdotti = new ArrayList<>();
+		cercaProdotti = new ArrayList<Prodotto>();
 		try{
 			connection = Database.getConnection();
 			psListProdotti = connection.prepareStatement(queryCercaProdotto);

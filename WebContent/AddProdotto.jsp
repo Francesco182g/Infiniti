@@ -9,7 +9,7 @@
 		 count = (Integer) session.getAttribute("carrello");
 		
 	} else {
-		response.sendRedirect("Index.jsp");
+		response.sendRedirect("index.jsp");
 	}
 %>
 

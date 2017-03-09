@@ -49,7 +49,7 @@
 			<section id="menubar">
 				<ul id="menu">
 					<!-- put class="selected" in the li tag for the selected page - to highlight which page you're on -->
-					<li class="selected"><a href="Index.jsp">Home</a></li>
+					<li class="selected"><a href="index.jsp">Home</a></li>
 					<li><a href="Prodotti.jsp">Prodotti</a></li>
 					<li><a href="Registrati.jsp">Registrati</a></li>
 					<li><a href="Login.jsp">Login</a></li>

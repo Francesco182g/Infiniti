@@ -9,7 +9,7 @@
 		//utente = new Utente("a","a","a","a",true,true);
 
 	} else {
-		response.sendRedirect("Index.jsp");
+		response.sendRedirect("index.jsp");
 	}
 
 	ArrayList<Utente> prodotti = new ArrayList<>();
