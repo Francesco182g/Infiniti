@@ -8,7 +8,7 @@ import java.util.List;
 import java.util.Properties;
 
 /**
- * Pull di connessioni al database
+ * Connection pull DB
  * 
  * @author Francesco Garofalo
  *
@@ -67,7 +67,7 @@ public class Database {
 	}
 
 	/**
-	 * Inizializza le connessioni
+	 * Start Connection
 	 * 
 	 * @return
 	 * @throws SQLException
@@ -83,7 +83,7 @@ public class Database {
 	}
 
 	/**
-	 * Fornisce una connessione al database
+	 * Take a DB connection
 	 * 
 	 * @return
 	 * @throws SQLException
@@ -110,7 +110,7 @@ public class Database {
 	}
 
 	/**
-	 * Rilascia la connessione
+	 * Release Connection
 	 * 
 	 * @param connection
 	 * @author Francesco Garofalo
