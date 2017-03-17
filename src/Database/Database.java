@@ -1,5 +1,9 @@
 package Database;
 
+/*
+ * Per motivi di Privacy e Sicurezza la connection pool con il db è stata nascosta
+ */
+
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
@@ -16,55 +20,7 @@ import java.util.Properties;
 
 public class Database {
 	
-	private static String protocol;
-	private static String hostname;
-	private static String port;
-	private static String username;
-	private static String password;
-	private static String dbName;
-	private static Properties userInfo;
-	private static String mySqlUrl;
-	private static List<Connection> freeDbConnections;
-	static final String driver = "com.mysql.jdbc.Driver";
-	// private static final boolean DEBUG = false;
-	private static final boolean LOCAL = false;
-
-	static {
-		protocol = "jdbc:mysql://";
-
-		if (LOCAL) {
-			hostname = "localhost:";
-			port = "3306/";
-			dbName = "myDB";
-			mySqlUrl = protocol + hostname + port + dbName;
-			username = "root";
-			password = "root";
-			userInfo = new Properties();
-			userInfo.put("user", username);
-			userInfo.put("password", password);
-
-		} else {
-			hostname = "mysql4.gear.host:";
-			port = "3306/";
-			dbName = "commerce1";
-			mySqlUrl = protocol + hostname + port + dbName;
-			/**********************************/
-			username = "commerce1";
-			password = "Ad6A!rv34ze!";
-			userInfo = new Properties();
-			userInfo.put("user", username);
-			userInfo.put("password", password);
-			System.out.println("Connessione Esterna 2 riuscita");
-		}
-
-		freeDbConnections = new LinkedList<Connection>();
-		try {
-			System.out.println("Test connection");
-			Class.forName(driver);
-		} catch (ClassNotFoundException e) {
-			System.out.println("DB driver not found:" + e.getMessage());
-		}
-	}
+	//Connection pool 
 
 	/**
 	 * Start Connection
