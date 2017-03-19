@@ -1,3 +1,8 @@
+<!-- 
+	Infiniti
+	@copy Francesco Garofalo 2017
+ -->
+
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	import="java.util.*,Beans.*"%>
 <%
@@ -5,7 +10,7 @@
 	int count = 0;
 	if (utente != null) {
 		// SIMULA LA SESSIONE
-		//utente = new Utente("a","a","a","a",true,true);
+		//utente = new Utente();
 		 count = (Integer) session.getAttribute("carrello");
 		
 	} else {

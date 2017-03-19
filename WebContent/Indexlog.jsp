@@ -1,3 +1,8 @@
+<!-- 
+	Infiniti
+	@copy Francesco Garofalo 2017
+ -->
+ 
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	import="java.util.*,Beans.*,Database.*,Servlet.*"%>
 <%
