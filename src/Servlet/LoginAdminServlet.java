@@ -11,7 +11,6 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import Beans.Admin;
-import Beans.Utente;
 import Database.DatabaseQuery;
 
 /**

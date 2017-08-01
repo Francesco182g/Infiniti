@@ -102,6 +102,8 @@
 					infatti non è possibile effettuare veri e propri acquisti ma solo
 					simularli. Sito creato da <a href="#tonno">Francesco Garofalo</a>
 					in collaborazione con <a href="#tonno">Anna Tomeo</a>
+					QUESTO SITO NON PRODUCE GUADAGNI E IN ALCUN MODO SFRUTTA I DIRITTI RED BULL.
+					SE SI RICHIEDE LA CANCELLAZIONE O LA RIMOZIONE INVIARE UNA MAIL A: francescogarofalo182@live.com.
 				</p>
 				<p id="block2">
 					Questo sito è stato scritto in <strong>HTML5</strong>,<strong>CSS</strong>,<strong>JSP</strong>,
@@ -155,6 +157,15 @@
 					<li>Internet Explorer 11 for mobile</li>
 					<li>Opera responsive tools</li>
 				</ul>
+				
+				<h3>Ultimo Aggiornamento e Link Git</h3>
+				<p>
+					Link a GitHub:  <a
+						href="https://github.com/Francesco182g/Infiniti">https://github.com/Francesco182g/Infiniti</a>
+				<p>01/08/2017 Aggiunti ChangeLog e info su ogni versione nuova.</p>
+				
+				<p>Infiniti non riceve aggiornamenti costanti ma solo piccoli update per migliorare alcuni
+				problemi di stabilità o errori nei sistemi. Il codice sorgente è disponibile su GitHub al link sopra indicato.</p>
 			</section>
 		</section>
 		<footer></footer>

@@ -12,7 +12,6 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import Beans.Ordine;
-import Beans.Prodotto;
 import Beans.Utente;
 import Database.DatabaseQuery;
 
@@ -34,6 +33,7 @@ public class GetListaOrdiniUtente extends HttpServlet {
 	/**
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
+	@SuppressWarnings("unchecked")
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		ArrayList<Ordine> lista = new ArrayList<>();
 
