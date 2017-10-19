@@ -162,6 +162,7 @@
 				<p>
 					Link a GitHub:  <a
 						href="https://github.com/Francesco182g/Infiniti">https://github.com/Francesco182g/Infiniti</a>
+				<p>19/08/2017 Fixato il delete self user.</p>
 				<p>01/08/2017 Aggiunti ChangeLog e info su ogni versione nuova.</p>
 				
 				<p>Infiniti non riceve aggiornamenti costanti ma solo piccoli update per migliorare alcuni

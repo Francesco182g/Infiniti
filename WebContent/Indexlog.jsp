@@ -157,6 +157,16 @@
 					<li>Internet Explorer 11 for mobile</li>
 					<li>Opera responsive tools</li>
 				</ul>
+				
+								<h3>Ultimo Aggiornamento e Link Git</h3>
+				<p>
+					Link a GitHub:  <a
+						href="https://github.com/Francesco182g/Infiniti">https://github.com/Francesco182g/Infiniti</a>
+				<p>19/08/2017 Fixato il delete self user.</p>
+				<p>01/08/2017 Aggiunti ChangeLog e info su ogni versione nuova.</p>
+				
+				<p>Infiniti non riceve aggiornamenti costanti ma solo piccoli update per migliorare alcuni
+				problemi di stabilità o errori nei sistemi. Il codice sorgente è disponibile su GitHub al link sopra indicato.</p>
 			</section>
 		</section>
 		<footer></footer>
