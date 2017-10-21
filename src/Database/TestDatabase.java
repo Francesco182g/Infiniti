@@ -47,14 +47,14 @@ public class TestDatabase {
 		Utente u = DatabaseQuery.getUtenteByID(email);
 		System.out.println(u);
 		*/
-		//Prodotto p = new Prodotto (Prodotto, descrizione, quantità, prezzo, tipo, condizione, nome, "PATH");
+		//Prodotto p = new Prodotto (Prodotto, descrizione, quantità, 2.00 , tipo, condizione, nome, "PATH");
 		//DatabaseQuery.delProdotto(Prodotto);
 		//System.out.println("Stampo prodotto: "+p);
-		/*
+		
 		int idProdotto = 15;
 		Prodotto p = DatabaseQuery.getProdotto(idProdotto);
 		System.out.println(p);
-		
+		/*
 		
 		int id = 15;
 		Prodotto p = new Prodotto();
@@ -88,7 +88,7 @@ public class TestDatabase {
 		//Admin admin = DatabaseQuery.getAdmin(a);
 		//System.out.println(admin);
 		
-		ArrayList prod = DatabaseQuery.getUtentiAll();
-		System.out.println(prod);
+		//ArrayList prod = DatabaseQuery.getUtentiAll();
+		//System.out.println(prod);
 	}
 }

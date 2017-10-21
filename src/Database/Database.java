@@ -26,7 +26,7 @@ public class Database {
 	private static String mySqlUrl;
 	private static List<Connection> freeDbConnections;
 	static final String driver = "com.mysql.jdbc.Driver";
-	// private static final boolean DEBUG = false;
+	// private static final boolean DEBUG = false; jdbc:mysql://mysql6.gear.host:3306/?user=infiniti
 	private static final boolean LOCAL = false;
 
 	static {
@@ -37,20 +37,23 @@ public class Database {
 			port = "3306/";
 			dbName = "myDB";
 			mySqlUrl = protocol + hostname + port + dbName;
+			
+			/**********************************/
 			username = "root";
-			password = "root";
+			password = "rooter";
 			userInfo = new Properties();
 			userInfo.put("user", username);
 			userInfo.put("password", password);
-
+			System.out.println("Connessione Locale riuscita");
 		} else {
-			hostname = "mysql4.gear.host:";
+			hostname = "sql2.freemysqlhosting.net:";
 			port = "3306/";
-			dbName = "commerce1";
+			dbName = "sql2200261";
 			mySqlUrl = protocol + hostname + port + dbName;
+			
 			/**********************************/
-			username = "commerce1";
-			password = "Ad6A!rv34ze!";
+			username = "sql2200261";
+			password = "dS4!qL4*";
 			userInfo = new Properties();
 			userInfo.put("user", username);
 			userInfo.put("password", password);
