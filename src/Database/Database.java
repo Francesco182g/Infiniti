@@ -46,14 +46,14 @@ public class Database {
 			userInfo.put("password", password);
 			System.out.println("Connessione Locale riuscita");
 		} else {
-			hostname = "sql2.freemysqlhosting.net:";
+			hostname = "den1.mysql4.gear.host:";
 			port = "3306/";
-			dbName = "sql2200261";
+			dbName = "commerce1";
 			mySqlUrl = protocol + hostname + port + dbName;
 			
 			/**********************************/
-			username = "sql2200261";
-			password = "dS4!qL4*";
+			username = "commerce1";
+			password = "Ad6A!rv34ze!";
 			userInfo = new Properties();
 			userInfo.put("user", username);
 			userInfo.put("password", password);
