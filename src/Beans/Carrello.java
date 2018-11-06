@@ -5,15 +5,13 @@ public class Carrello {
 	private int idProdotto;
 
 	public Carrello(){}
-	
-	//Ciao Francesco sei stronxo
-	
+	//Test commit
 	public Carrello(String idUtente, int idProdotto) {
 		super();
 		this.idUtente = idUtente;
 		this.idProdotto = idProdotto;
 	}
-
+	//TEst fsdfds
 	public String getIdUtente() {
 		return idUtente;
 	}
