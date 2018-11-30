@@ -22,7 +22,7 @@ public class DatabaseQuery {
 	private static String queryEliminaUtente;
 	private static String queryGetUtente;
 	private static String queryCambiaPassword;
-	
+
 	/*
 	 * Query gestione Prodotti 
 	 */
@@ -33,7 +33,7 @@ public class DatabaseQuery {
 	private static String queryGetProdottoById;
 	private static String queryGetProdottoByUser;
 	private static String queryGetNumeroProdotto;
-	
+
 	/*
 	 * Query gestione Ordini e Carrello
 	 */
@@ -50,7 +50,7 @@ public class DatabaseQuery {
 	 */
 	private static String queryGetUtenti;
 	private static String queryGetAdmin;
-	
+
 	/*
 	 * ArrayList per le query
 	 */
@@ -213,7 +213,7 @@ public class DatabaseQuery {
 		else
 			return utente;
 	}
-	
+
 	/**
 	 * Restituisce ,se esiste, tutti gli Utenti 
 	 * 
@@ -242,7 +242,7 @@ public class DatabaseQuery {
 				utente.setPassword(rs.getString("Password"));
 				utente.setSesso(rs.getString("Sesso"));
 				utente.setFoto(rs.getString("Foto"));
-				
+
 				utenti.add(utente);
 			}
 		} finally {
@@ -255,7 +255,7 @@ public class DatabaseQuery {
 		}
 		return utenti;
 	}
-	
+
 	/**
 	 * Recupera un admin dal DB
 	 * 
@@ -391,7 +391,7 @@ public class DatabaseQuery {
 		try{
 			connection = Database.getConnection();
 			psAddOrdine = connection.prepareStatement(queryAddOrdine);
-			
+
 			psAddOrdine.setInt(1, ordine.getIdOrdine());
 			psAddOrdine.setInt(2, ordine.getIdProdotto());
 			psAddOrdine.setString(3, ordine.getIdUtente());
@@ -417,8 +417,8 @@ public class DatabaseQuery {
 		return true;
 	}
 
-	
-	
+
+
 	/**
 	 * Ritorna la lista di tutti i prodotti presenti nel DB
 	 * 
@@ -469,7 +469,7 @@ public class DatabaseQuery {
 		}
 		return listProdotti;
 	}
-	
+
 	/**
 	 * Ritorna la lista di tutti i prodotti di un utente nel DB
 	 * 
@@ -521,8 +521,8 @@ public class DatabaseQuery {
 		}
 		return listProdotti;
 	}
-	
-	
+
+
 	/**
 	 * Ritorna la lista di tutti gli ordini di un utente nel DB
 	 * 
@@ -675,7 +675,7 @@ public class DatabaseQuery {
 		}
 		return pr;
 	}
-	
+
 	/**
 	 * Inserisce un prodotto nel carrello dell'utente
 	 * 
@@ -694,7 +694,7 @@ public class DatabaseQuery {
 
 			psAddCarrello.setString(1, idUtente);
 			psAddCarrello.setInt(2, idProdotto);
-			
+
 			psAddCarrello.executeUpdate();
 
 			connection.commit();
@@ -710,7 +710,7 @@ public class DatabaseQuery {
 
 		return true;
 	}
-	
+
 	/**
 	 * Ritorna il carrello di un utente dato un idUtente
 	 * 
@@ -723,8 +723,8 @@ public class DatabaseQuery {
 		Connection connection = null;
 		PreparedStatement psListCarrello= null;
 		listCarrello = new ArrayList<>();
-		
-		
+
+
 		try{
 			connection = Database.getConnection();
 			psListCarrello = connection.prepareStatement(queryGetCarrello);
@@ -736,7 +736,7 @@ public class DatabaseQuery {
 				Carrello cr = new Carrello();
 				cr.setIdUtente(rs.getString("idUtente"));
 				cr.setIdProdotto(rs.getInt("idProdotto"));
-				
+
 				listCarrello.add(cr);
 				cr = null;
 			}
@@ -758,7 +758,7 @@ public class DatabaseQuery {
 		}
 		return listCarrello;
 	}
-	
+
 	/**
 	 * Ritorna il numero di prodotti che un utente ha nel carrello
 	 * 
@@ -770,18 +770,18 @@ public class DatabaseQuery {
 	public synchronized static int getCountCarrello(String idUtente) throws SQLException{
 		Connection connection = null;
 		PreparedStatement psGetNumCarrello= null;
-		
+
 		int valore = 0;
-		
+
 		try{
 			connection = Database.getConnection();
 			psGetNumCarrello = connection.prepareStatement(queryGetCarrello);
 
 			psGetNumCarrello.setString(1, idUtente);
 			ResultSet rs = psGetNumCarrello.executeQuery();
-			
+
 			while(rs.next()){
-				
+
 				valore++;
 			}
 
@@ -802,7 +802,7 @@ public class DatabaseQuery {
 		}
 		return valore;
 	}
-	
+
 	/**
 	 * Elimina il carrello di un utente dal database
 	 * 
@@ -834,13 +834,13 @@ public class DatabaseQuery {
 
 		return true;
 	}
-	
-	
-	
+
+
+
 
 	/**
 	 * Query Sql per il Database
-	 * @author Anna Tomeo
+	 * @author Francesco Garofalo
 	 */
 	static {
 		queryAddUtente = "INSERT INTO sql2200261.user (email, Nome, Cognome, Password, Sesso, Foto) VALUES (?,?,?,?,?,?);";
@@ -861,5 +861,5 @@ public class DatabaseQuery {
 		queryGetUtenti = "SELECT * FROM sql2200261.user";
 		queryGetAdmin = "SELECT * FROM sql2200261.admin WHERE idadmin = ?";
 	}
-	
+
 }

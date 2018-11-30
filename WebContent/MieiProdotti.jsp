@@ -129,7 +129,7 @@
 							<th>Quantità</th>
 							<th>Condizione</th>
 							<th>Tipo</th>
-							<th>Aggiungi a Carrello</th>
+							<th>Elimina Prodotto</th>
 						</tr>
 					</thead>
 					<tbody>
