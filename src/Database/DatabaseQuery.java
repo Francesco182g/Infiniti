@@ -14,7 +14,6 @@ import Beans.Utente;
 
 
 public class DatabaseQuery {
-
 	/**
 	 * Query gestione Utente
 	 */
@@ -843,23 +842,24 @@ public class DatabaseQuery {
 	 * @author Francesco Garofalo
 	 */
 	static {
-		queryAddUtente = "INSERT INTO sql2200261.user (email, Nome, Cognome, Password, Sesso, Foto) VALUES (?,?,?,?,?,?);";
-		queryEliminaUtente = "DELETE FROM sql2200261.user WHERE email = ?";
-		queryGetUtente = "SELECT * FROM sql2200261.user WHERE email=?";
-		queryAddProdotto = "INSERT INTO sql2200261.prodotto (idProdotto, Descrizione, Quantità, PrezzoSingolo, Tipo, Condizione, Nome, idUtente, Path) VALUES (?,?,?,?,?,?,?,?,?);";
-		queryEliminaProdotto = "DELETE FROM sql2200261.prodotto WHERE idProdotto = ?";
-		queryGetProdotti = "SELECT * FROM sql2200261.prodotto";
-		queryGetMieiOrdini = "SELECT * FROM sql2200261.ordine WHERE idUtente = ?";
-		queryCercaProdotto = "SELECT * FROM sql2200261.prodotto WHERE Nome = ?";
-		queryGetProdottoById ="SELECT * FROM sql2200261.prodotto WHERE idProdotto = ?";
-		queryGetProdottoByUser ="SELECT * FROM sql2200261.prodotto WHERE idUtente = ?";
-		queryAddCarrello = "INSERT INTO sql2200261.carrello (idUtente, idProdotto) VALUES (?, ?)";
-		queryAddOrdine = "INSERT INTO sql2200261.ordine (idOrdine, idProdotto, idUtente, Data, Pagamento, Indirizzo, Note, Prezzo) VALUES (?,?,?,?,?,?,?,?)";
-		queryGetCarrello = "SELECT * FROM sql2200261.carrello WHERE idUtente = ?";
-		queryEliminaCarrello = "DELETE FROM sql2200261.carrello WHERE idUtente = ?";
-		queryGetNumeroProdotto = "SELECT * FROM sql2200261.carrello WHERE idUtente = ?";
-		queryGetUtenti = "SELECT * FROM sql2200261.user";
-		queryGetAdmin = "SELECT * FROM sql2200261.admin WHERE idadmin = ?";
+		queryAddUtente = "INSERT INTO commerce1.user (email, Nome, Cognome, Password, Sesso, Foto) VALUES (?,?,?,?,?,?);";
+		queryEliminaUtente = "DELETE FROM commerce1.user WHERE email = ?";
+		queryGetUtente = "SELECT * FROM commerce1.user WHERE email=?";
+		queryAddProdotto = "INSERT INTO commerce1.prodotto (idProdotto, Descrizione, Quantità, PrezzoSingolo, Tipo, Condizione, Nome, idUtente, Path) VALUES (?,?,?,?,?,?,?,?,?);";
+		queryEliminaProdotto = "DELETE FROM commerce1.prodotto WHERE idProdotto = ?";
+		queryGetProdotti = "SELECT * FROM commerce1.prodotto";
+		queryGetMieiOrdini = "SELECT * FROM commerce1.ordine WHERE idUtente = ?";
+		queryCercaProdotto = "SELECT * FROM commerce1.prodotto WHERE Nome = ?";
+		queryGetProdottoById ="SELECT * FROM commerce1.prodotto WHERE idProdotto = ?";
+		queryGetProdottoByUser ="SELECT * FROM commerce1.prodotto WHERE idUtente = ?";
+		queryAddCarrello = "INSERT INTO commerce1.carrello (idUtente, idProdotto) VALUES (?, ?)";
+		queryAddOrdine = "INSERT INTO commerce1.ordine (idOrdine, idProdotto, idUtente, Data, Pagamento, Indirizzo, Note, Prezzo) VALUES (?,?,?,?,?,?,?,?)";
+		queryGetCarrello = "SELECT * FROM commerce1.carrello WHERE idUtente = ?";
+		queryEliminaCarrello = "DELETE FROM commerce1.carrello WHERE idUtente = ?";
+		queryGetNumeroProdotto = "SELECT * FROM commerce1.carrello WHERE idUtente = ?";
+		queryGetUtenti = "SELECT * FROM commerce1.user";
+		queryGetAdmin = "SELECT * FROM commerce1.admin WHERE idadmin = ?";
+		
 	}
 
 }
