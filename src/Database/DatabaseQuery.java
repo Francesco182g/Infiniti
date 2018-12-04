@@ -845,7 +845,8 @@ public class DatabaseQuery {
 		queryAddUtente = "INSERT INTO commerce1.user (email, Nome, Cognome, Password, Sesso, Foto) VALUES (?,?,?,?,?,?);";
 		queryEliminaUtente = "DELETE FROM commerce1.user WHERE email = ?";
 		queryGetUtente = "SELECT * FROM commerce1.user WHERE email=?";
-		queryAddProdotto = "INSERT INTO commerce1.prodotto (idProdotto, Descrizione, Quantità, PrezzoSingolo, Tipo, Condizione, Nome, idUtente, Path) VALUES (?,?,?,?,?,?,?,?,?);";
+		//MODIFICATO
+		queryAddProdotto = "INSERT INTO commerce1.prodotto (idProdotto, Descrizione, Quantità, PrezzoSingolo, Tipo, Condizione, Nome, idUtente, Path, Offerta) VALUES (?,?,?,?,?,?,?,?,?,?);";
 		queryEliminaProdotto = "DELETE FROM commerce1.prodotto WHERE idProdotto = ?";
 		queryGetProdotti = "SELECT * FROM commerce1.prodotto";
 		queryGetMieiOrdini = "SELECT * FROM commerce1.ordine WHERE idUtente = ?";
@@ -859,7 +860,6 @@ public class DatabaseQuery {
 		queryGetNumeroProdotto = "SELECT * FROM commerce1.carrello WHERE idUtente = ?";
 		queryGetUtenti = "SELECT * FROM commerce1.user";
 		queryGetAdmin = "SELECT * FROM commerce1.admin WHERE idadmin = ?";
-		
 	}
 
 }
