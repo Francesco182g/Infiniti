@@ -23,10 +23,11 @@ import Database.DatabaseQuery;
 /**
  * Servlet implementation class AcquistaProdottoServlet
  */
+
 @WebServlet("/AcquistaProdottoServlet")
 public class AcquistaProdottoServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-
+	
 	/**
 	 * @see HttpServlet#HttpServlet()
 	 */
@@ -71,7 +72,6 @@ public class AcquistaProdottoServlet extends HttpServlet {
 		}
 
 		System.out.println(lista);
-
 		for (int i = 0; i < lista.size(); i++) {
 			try {
 				Prodotto p = DatabaseQuery.getProdotto(lista.get(i).getIdProdotto());
