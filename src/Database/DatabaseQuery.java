@@ -845,7 +845,7 @@ public class DatabaseQuery {
 		queryAddUtente = "INSERT INTO commerce1.user (email, Nome, Cognome, Password, Sesso, Foto) VALUES (?,?,?,?,?,?);";
 		queryEliminaUtente = "DELETE FROM commerce1.user WHERE email = ?";
 		queryGetUtente = "SELECT * FROM commerce1.user WHERE email=?";
-		//MODIFICATO
+		//Modificato AddProdotto
 		queryAddProdotto = "INSERT INTO commerce1.prodotto (idProdotto, Descrizione, Quantità, PrezzoSingolo, Tipo, Condizione, Nome, idUtente, Path, Offerta) VALUES (?,?,?,?,?,?,?,?,?,?);";
 		queryEliminaProdotto = "DELETE FROM commerce1.prodotto WHERE idProdotto = ?";
 		queryGetProdotti = "SELECT * FROM commerce1.prodotto";

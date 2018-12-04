@@ -1,6 +1,7 @@
 package Servlet;
 
 import java.io.IOException;
+import java.math.BigDecimal;
 import java.sql.Date;
 import java.sql.SQLException;
 import java.time.LocalDate;
@@ -25,42 +26,42 @@ import Database.DatabaseQuery;
 @WebServlet("/AcquistaProdottoServlet")
 public class AcquistaProdottoServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-       
-    /**
-     * @see HttpServlet#HttpServlet()
-     */
-    public AcquistaProdottoServlet() {
-        super();
-        // TODO Auto-generated constructor stub
-    }
+
+	/**
+	 * @see HttpServlet#HttpServlet()
+	 */
+	public AcquistaProdottoServlet() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
 
 	/**
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	@SuppressWarnings("unchecked")
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		
+
 		HttpSession session = request.getSession();
 		Utente u = (Utente) session.getAttribute("user");
-		
+
 		String email =  u.getEmail();
-		
+
 		String Pagamento = request.getParameter("pagamento");
 		System.out.println(Pagamento);
-		
+
 		String Indirizzo = request.getParameter("indirizzo"); 
 		System.out.print(Indirizzo);
-		
+
 		String Descrizione = request.getParameter("descrizione");
 		System.out.println(Descrizione);
-		
+
 		LocalDate localDate = LocalDate.now();
 		int day = localDate.getDayOfMonth();
 		int mese = localDate.getMonthValue();
 		int year = localDate.getYear();
 		@SuppressWarnings("deprecation")
 		Date data = new Date(year, mese, day);
-		
+
 		ArrayList<Carrello> lista = new ArrayList<>();
 		try {
 			lista = DatabaseQuery.getCarrello(email);
@@ -68,23 +69,37 @@ public class AcquistaProdottoServlet extends HttpServlet {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		
+
 		System.out.println(lista);
-		
+
 		for (int i = 0; i < lista.size(); i++) {
 			try {
 				Prodotto p = DatabaseQuery.getProdotto(lista.get(i).getIdProdotto());
-				Ordine o = new Ordine(0, p.getIdProdotto(), email, data, Pagamento, Indirizzo, Descrizione,  p.getPrezzo());
-				System.out.println(o);
-				DatabaseQuery.addOrdine(o);
-				p=null;
-				o=null;
+				//modifica prezzo offerta
+				if(p.getOfferta()==0) {
+					Ordine o = new Ordine(0, p.getIdProdotto(), email, data, Pagamento, Indirizzo, Descrizione,  p.getPrezzo());
+					System.out.println(o);
+					DatabaseQuery.addOrdine(o);
+					p=null;
+					o=null;
+				} else {
+					BigDecimal offerta = BigDecimal.valueOf(p.getOfferta());
+					BigDecimal prezzoNuovo= p.getPrezzo().multiply(offerta);
+					prezzoNuovo = prezzoNuovo.divide(BigDecimal.valueOf(100));
+					prezzoNuovo = p.getPrezzo().subtract(prezzoNuovo);
+					Ordine o = new Ordine(0, p.getIdProdotto(), email, data, Pagamento, Indirizzo, Descrizione,  prezzoNuovo);
+					System.out.println(o);
+					DatabaseQuery.addOrdine(o);
+					p=null;
+					o=null;
+				}
+
 			} catch (SQLException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
 
 			}
-			
+
 			try {
 				DatabaseQuery.delCarrello(email);
 				request.getRequestDispatcher("MieiOrdini.jsp").forward(request, response);
@@ -97,7 +112,7 @@ public class AcquistaProdottoServlet extends HttpServlet {
 
 			}
 		}		
-		
+
 		request.getRequestDispatcher("MieiOrdini.jsp").forward(request, response);
 	}
 
