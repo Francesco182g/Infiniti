@@ -12,10 +12,19 @@ public class Prodotto {
 	private String nome;
 	private String path;
 	private String idUtente;
+	private int offerta;
 	
+	public int getOfferta() {
+		return offerta;
+	}
+
+	public void setOfferta(int offerta) {
+		this.offerta = offerta;
+	}
+
 	public Prodotto() {}
 
-	public Prodotto(int idProdotto, String descrizione, int quantità, BigDecimal prezzo, String tipo, String condizione, String nome, String path, String utente) {
+	public Prodotto(int idProdotto, String descrizione, int quantità, BigDecimal prezzo, String tipo, String condizione, String nome, String path, String utente, int offerta) {
 		super();
 		this.idProdotto = idProdotto;
 		this.descrizione = descrizione;
@@ -26,6 +35,7 @@ public class Prodotto {
 		this.nome = nome;
 		this.path = path;
 		this.idUtente = utente;
+		this.offerta= offerta;
 	}
 
 	public int getIdProdotto() {
@@ -100,12 +110,10 @@ public class Prodotto {
 		this.idUtente = utente;
 	}
 
-
 	@Override
 	public String toString() {
 		return "Prodotto [idProdotto=" + idProdotto + ", descrizione=" + descrizione + ", quantità=" + quantità
-				+ ", prezzo=" + prezzo + ", tipo=" + tipo + ", condizione=" + condizione + "]";
+				+ ", prezzo=" + prezzo + ", tipo=" + tipo + ", condizione=" + condizione + ", nome=" + nome + ", path="
+				+ path + ", idUtente=" + idUtente + ", offerta=" + offerta + "]";
 	}
-	
-	
 }

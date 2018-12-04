@@ -63,7 +63,7 @@ public class AddProdottoServlet extends HttpServlet {
 		String Path = request.getParameter("prodotto_path");
 		System.out.println(Path);	
 		
-		Prodotto prodotto = new Prodotto(0, Descrizione, Quantità, Prezzo, Tipo, Condizione, Nome, Path, null);
+		Prodotto prodotto = new Prodotto(0, Descrizione, Quantità, Prezzo, Tipo, Condizione, Nome, Path, null, 0);
 		System.out.println(prodotto);
 		
 		try {

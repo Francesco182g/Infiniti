@@ -4,5 +4,4 @@ button1=onclick=f;
 
 function f() {
 	alert("Prodotto aggiunto al carrello");
-	
 }
