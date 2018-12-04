@@ -67,7 +67,7 @@ public class DatabaseQuery {
 	 * @param Utente
 	 * @return boolean value
 	 * @throws SQLException
-	 * @author Francesco 
+	 * @author   
 	 */
 	public synchronized static boolean addUser(Utente utente) throws SQLException{
 		Connection connection = null;
@@ -108,7 +108,7 @@ public class DatabaseQuery {
 	 * @param email
 	 * @return boolean value
 	 * @throws SQLException
-	 * @author Francesco 
+	 * @author   
 	 */
 	public synchronized static boolean delUser(String email) throws SQLException{
 		Connection connection = null;
@@ -140,7 +140,7 @@ public class DatabaseQuery {
 	 * @param email
 	 * @return utente
 	 * @throws SQLException
-	 * @author Francesco 
+	 * @author   
 	 */
 	public synchronized static boolean getUser(String email) throws SQLException{
 		Connection connection = null;
@@ -173,7 +173,7 @@ public class DatabaseQuery {
 	 * @param email
 	 * @return {@code null} se l'utene non esiste, {@code Oggetto Utente } altrimenti
 	 * @throws SQLException
-	 * @author Francesco Garofalo
+	 * @author    
 	 */
 
 	public synchronized static Utente getUtenteByID(String email) throws SQLException {
@@ -219,7 +219,7 @@ public class DatabaseQuery {
 	 * @param null
 	 * @return arrayUtenti
 	 * @throws SQLException
-	 * @author Francesco Garofalo
+	 * @author    
 	 */
 
 	public synchronized static ArrayList getUtentiAll() throws SQLException {
@@ -261,7 +261,7 @@ public class DatabaseQuery {
 	 * @param email
 	 * @return admin
 	 * @throws SQLException
-	 * @author Francesco
+	 * @author  
 	 */
 	public synchronized static Admin getAdmin(String email) throws SQLException {
 		Connection connection = null;
@@ -299,12 +299,11 @@ public class DatabaseQuery {
 	}
 
 	/**
-	 * Registra un prodotto nel database
+	 * Registra un prodotto nel database (MODIFICATO)
 	 * 
 	 * @param Prodotto, email
 	 * @return boolean value
 	 * @throws SQLException
-	 * @author Francesco 
 	 */
 	public synchronized static boolean addProdotto(Prodotto prodotto, String idUtente) throws SQLException{
 		Connection connection = null;
@@ -323,12 +322,11 @@ public class DatabaseQuery {
 			psAddProdotto.setString(7, prodotto.getNome());
 			psAddProdotto.setString(8, idUtente);
 			psAddProdotto.setString(9, prodotto.getPath());
-
-
+			psAddProdotto.setInt(10, prodotto.getOfferta());
+			
 			System.out.println(psAddProdotto.toString());
 
 			psAddProdotto.executeUpdate();
-
 			connection.commit();
 			System.out.println("Insert Prodotto Connessione...");
 		} finally {
@@ -349,7 +347,7 @@ public class DatabaseQuery {
 	 * @param idProdotto
 	 * @return boolean value
 	 * @throws SQLException
-	 * @author Francesco 
+	 * @author   
 	 */
 	public synchronized static boolean delProdotto(int idProdotto) throws SQLException{
 		Connection connection = null;
@@ -381,7 +379,7 @@ public class DatabaseQuery {
 	 * @param ordine
 	 * @return boolean value
 	 * @throws SQLException
-	 * @author Francesco 
+	 * @author   
 	 */
 	public synchronized static boolean addOrdine(Ordine ordine) throws SQLException{
 		Connection connection = null;
@@ -424,7 +422,7 @@ public class DatabaseQuery {
 	 * @param null
 	 * @return ArrayList Prodotti
 	 * @throws SQLException
-	 * @author Francesco 
+	 * @author   
 	 */
 	public synchronized static ArrayList getProdotti() throws SQLException{
 		Connection connection = null;
@@ -447,6 +445,7 @@ public class DatabaseQuery {
 				pr.setNome(rs.getString("Nome"));
 				pr.setIdUtente(rs.getString("idUtente"));
 				pr.setPath(rs.getString("Path"));
+				pr.setOfferta(rs.getInt("Offerta"));
 
 				listProdotti.add(pr);
 			}
@@ -475,7 +474,7 @@ public class DatabaseQuery {
 	 * @param idUtente
 	 * @return ArrayList Prodotti
 	 * @throws SQLException
-	 * @author Francesco 
+	 * @author   
 	 */
 	public synchronized static ArrayList getProdottiUtente(String email) throws SQLException{
 		Connection connection = null;
@@ -499,7 +498,7 @@ public class DatabaseQuery {
 				pr.setNome(rs.getString("Nome"));
 				pr.setIdUtente(rs.getString("idUtente"));
 				pr.setPath(rs.getString("Path"));
-
+				pr.setOfferta(rs.getInt("Offerta"));
 				listProdotti.add(pr);
 			}
 
@@ -528,7 +527,7 @@ public class DatabaseQuery {
 	 * @param idUtente
 	 * @return ArrayList Ordini
 	 * @throws SQLException
-	 * @author Francesco 
+	 * @author   
 	 */
 	public synchronized static ArrayList getOrdiniUtente(String email) throws SQLException{
 		Connection connection = null;
@@ -579,7 +578,7 @@ public class DatabaseQuery {
 	 * @param nomeProdotto
 	 * @return ArrayList cercaProdotti
 	 * @throws SQLException
-	 * @author Francesco 
+	 * @author   
 	 */
 	public synchronized static ArrayList cercaProdotti(String nomeProdotto) throws SQLException{
 		Connection connection = null;
@@ -603,6 +602,7 @@ public class DatabaseQuery {
 				pr.setNome(rs.getString("Nome"));
 				pr.setIdUtente(rs.getString("idUtente"));
 				pr.setPath(rs.getString("Path"));
+				pr.setOfferta(rs.getInt("Offerta"));
 
 				cercaProdotti.add(pr);
 			}
@@ -631,7 +631,7 @@ public class DatabaseQuery {
 	 * @param idProdotto
 	 * @return Prodotto pr
 	 * @throws SQLException
-	 * @author Francesco 
+	 * @author   
 	 */
 	public synchronized static Prodotto getProdotto(int idProdotto) throws SQLException{
 		Connection connection = null;
@@ -655,7 +655,7 @@ public class DatabaseQuery {
 				pr.setNome(rs.getString("Nome"));
 				pr.setIdUtente(rs.getString("idUtente"));
 				pr.setPath(rs.getString("Path"));
-
+				pr.setOfferta(rs.getInt("Offerta"));
 			}
 		}
 		finally {
@@ -681,7 +681,7 @@ public class DatabaseQuery {
 	 * @param idProdotto, idUtente
 	 * @return boolean value
 	 * @throws SQLException
-	 * @author Francesco 
+	 * @author   
 	 */
 	public synchronized static boolean addCarrello(int idProdotto, String idUtente) throws SQLException{
 		Connection connection = null;
@@ -716,7 +716,7 @@ public class DatabaseQuery {
 	 * @param idUtente
 	 * @return ArrayList listCarrello
 	 * @throws SQLException
-	 * @author Francesco 
+	 * @author   
 	 */
 	public synchronized static ArrayList getCarrello(String idUtente) throws SQLException{
 		Connection connection = null;
@@ -764,7 +764,7 @@ public class DatabaseQuery {
 	 * @param idUtente
 	 * @return int valore
 	 * @throws SQLException
-	 * @author Francesco 
+	 * @author   
 	 */
 	public synchronized static int getCountCarrello(String idUtente) throws SQLException{
 		Connection connection = null;
@@ -808,7 +808,7 @@ public class DatabaseQuery {
 	 * @param email
 	 * @return boolean value
 	 * @throws SQLException
-	 * @author Francesco 
+	 * @author   
 	 */
 	public synchronized static boolean delCarrello(String email) throws SQLException{
 		Connection connection = null;
@@ -839,7 +839,7 @@ public class DatabaseQuery {
 
 	/**
 	 * Query Sql per il Database
-	 * @author Francesco Garofalo
+	 * @author    
 	 */
 	static {
 		queryAddUtente = "INSERT INTO commerce1.user (email, Nome, Cognome, Password, Sesso, Foto) VALUES (?,?,?,?,?,?);";

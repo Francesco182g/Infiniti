@@ -27,13 +27,7 @@ public class TestDatabase {
 		Utente u = DatabaseQuery.getUtenteByID("francescogarofalo@studenti.unisa.it");
 		System.out.println(u.getPassword());
 		*/
-		int Prodotto = 1;
-		String descrizione = "Ciao";
-		int quantità = 3;
-		//double prezzo = 30.50;
-		String tipo = "Cucina";
-		String condizione = "Buona";
-		String nome = "Leopoldo";
+
 		
 		
 		//ArrayList<Prodotto> lista = new ArrayList<>();
@@ -42,7 +36,6 @@ public class TestDatabase {
 		
 		//System.out.println(lista);
 		
-		String email = "francescogarofalo@studenti.unisa.it";
 /*		
 		Utente u = DatabaseQuery.getUtenteByID(email);
 		System.out.println(u);
@@ -51,9 +44,6 @@ public class TestDatabase {
 		//DatabaseQuery.delProdotto(Prodotto);
 		//System.out.println("Stampo prodotto: "+p);
 		
-		int idProdotto = 15;
-		Prodotto p = DatabaseQuery.getProdotto(idProdotto);
-		System.out.println(p);
 		/*
 		
 		int id = 15;
