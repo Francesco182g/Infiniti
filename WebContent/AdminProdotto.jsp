@@ -81,6 +81,7 @@
 							<th>Quantità</th>
 							<th>Condizione</th>
 							<th>Tipo</th>
+							<th>Offerta</th>
 							<th>Elimina dal Database</th>
 						</tr>
 					</thead>
@@ -104,6 +105,7 @@
 							<td><%=prodotti.get(i).getQuantità()%></td>
 							<td><%=prodotti.get(i).getCondizione()%></td>
 							<td><%=prodotti.get(i).getTipo()%></td>
+							<td><%=prodotti.get(i).getOfferta() %></td>
 							<td><input type="image" id="addcarr" name="submitta"
 								value="addcarr" src="style/cestino.png" /></td>
 						</tr>
