@@ -116,7 +116,7 @@
 						<br>
 						<p>
 							<span>Nome</span><input class="contact" type="text"
-								name="prodotto_nome" value="<%=prod.getNome()%>" />
+								name="prodotto_nome" disabled value="<%=prod.getNome()%> " />
 
 						</p>
 						<br>
@@ -165,10 +165,16 @@
 				</form>
 				<form id="insertform" action="EliminaProdottoServlet"
 					method="post">
+					<section class="form_settings">
+					<input class="contact" type="hidden"
+								name="prodotto_id" value="<%=prod.getIdProdotto()%>"/>
 					<p style="padding-top: 15px">
+					
 						<span>&nbsp;</span><input class="insert" type="submit"
 							name="contact_submitted" value="Elimina Prodotto" />
+							
 					</p>
+					</section>
 				</form>
 			</section>
 		</section>
