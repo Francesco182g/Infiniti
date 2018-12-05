@@ -4,7 +4,7 @@
  -->
  
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-	import="java.util.*,Beans.*,Database.*,Servlet.*"%>
+	import="java.util.*,java.math.*,Beans.*,Database.*,Servlet.*"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 
 <%
@@ -23,7 +23,17 @@
 
 		for (int i = 0; i < lista.size(); i++) {
 			Prodotto p = DatabaseQuery.getProdotto(lista.get(i).getIdProdotto());
-			prod.add(p);
+			if(p.getOfferta() == 0){
+				prod.add(p);
+			} else {
+				BigDecimal offerta = BigDecimal.valueOf(p.getOfferta());
+				BigDecimal prezzoNuovo= p.getPrezzo().multiply(offerta);
+				prezzoNuovo = prezzoNuovo.divide(BigDecimal.valueOf(100));
+				prezzoNuovo = p.getPrezzo().subtract(prezzoNuovo);
+				p.setPrezzo(prezzoNuovo);
+				prod.add(p);
+			}
+			
 		}
 
 		count = (Integer) session.getAttribute("carrello");
@@ -122,12 +132,14 @@
 				</form>
 			</aside>
 			<section id="content">
-				<h2>PER MOTIVI DI SICUREZZA QUESTA SEZIONE NON È ATTIVA E NON È
-					POSSIBILE SIMULARE IL PAGAMENTO...</h2>
+				<h2></h2>
 				<h2>
 					Ciao
 					<%=utente.getNome()%>, ecco i prodotti che hai aggiunto al
 					carrello...
+				</h2>
+				<h2>
+				Attenzione l'acquisto è solo simulato, non inserire dati reali!
 				</h2>
 
 				<%
@@ -139,7 +151,7 @@
 							<th>Foto</th>
 							<th>idProdotto</th>
 							<th>Nome</th>
-							<th>Prezzo</th>
+							<th>Prezzo Consigliato</th>
 							<th>Quantità</th>
 							<th>Condizione</th>
 							<th>Tipo</th>
@@ -172,18 +184,18 @@
 						<br>
 						<p>
 							<span>Pagamento</span><input class="contact" type="text"
-								name="pagamento" value="" placeholder="disattivata" readonly />
+								name="pagamento" value="" placeholder="Inserisci tipo di pagamento: Carta di credito, contanti, ecc."  />
 						</p>
 						<br>
 						<p>
 							<span>Indirizzo</span><input class="contact" type="text"
-								name="indirizzo" value="" placeholder="disattivata" readonly />
+								name="indirizzo" value="" placeholder="Città, Provincia, Strada"  />
 						</p>
 						<br>
 						<p>
 							<span>Note</span>
 							<textarea class="contact textarea" rows="8" cols="40"
-								name="descrizione" placeholder="disattivata" readonly></textarea>
+								name="descrizione" placeholder="Note aggiuntive" ></textarea>
 						</p>
 						<br>
 						<p style="padding-top: 15px">
