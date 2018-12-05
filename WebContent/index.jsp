@@ -101,7 +101,7 @@
 					Questo è un sito creato solo a scopo illustrativo e didattico,
 					infatti non è possibile effettuare veri e propri acquisti ma solo
 					simularli. Sito creato da <a href="#tonno">Francesco Garofalo</a>
-					in collaborazione con <a href="#tonno">Anna Tomeo</a> QUESTO SITO
+					manutenzione con <a href="#tonno">Antonio Fasulo</a> QUESTO SITO
 					NON PRODUCE GUADAGNI E IN ALCUN MODO SFRUTTA I DIRITTI RED BULL. SE
 					SI RICHIEDE LA CANCELLAZIONE O LA RIMOZIONE INVIARE UNA MAIL A:
 					francescogarofalo182@live.com.

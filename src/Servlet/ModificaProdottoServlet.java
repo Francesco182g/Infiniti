@@ -9,19 +9,20 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import Beans.Prodotto;
 import Database.DatabaseQuery;
 
 /**
  * Servlet implementation class EliminaProdottoServlet
  */
-@WebServlet("/EliminaProdottoServlet")
-public class EliminaProdottoServlet extends HttpServlet {
+@WebServlet("/ModificaProdottoServlet")
+public class ModificaProdottoServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public EliminaProdottoServlet() {
+    public ModificaProdottoServlet() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -37,12 +38,13 @@ public class EliminaProdottoServlet extends HttpServlet {
 		if(Prodotto == null){
 			System.out.println("Servlet: Valore null ricevuto dalla jsp");
 		} else {
-			System.out.println("Servlet: ricevuta richiesta inserimento");
+			System.out.println("Servlet: ricevuta richiesta modifica");
 			int idProdotto = Integer.parseInt(Prodotto);
 			
 			try {
-				DatabaseQuery.delProdotto(idProdotto);
-				request.getRequestDispatcher("AdminProdotto.jsp").forward(request, response);
+				Prodotto prod = DatabaseQuery.getProdotto(idProdotto);
+				request.setAttribute("prodotto", prod);
+				request.getRequestDispatcher("ModificaProdotto.jsp").forward(request, response);
 			} catch (SQLException e) {
 				e.printStackTrace();
 			}

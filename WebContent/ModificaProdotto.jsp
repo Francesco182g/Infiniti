@@ -4,23 +4,15 @@
  -->
 
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-	import="java.util.*,Beans.*,Database.*,Servlet.*"%>
-
+	import="java.util.*,Beans.*"%>
 <%
 	Utente utente = (Utente) session.getAttribute("user");
-	ArrayList<Prodotto> prodotti = new ArrayList<>();
-	String visible = null;
-	String idUtente = null;
+	Prodotto prod = (Prodotto) request.getAttribute("prodotto");
 	int count = 0;
 	if (utente != null) {
-
-		visible = (String) request.getAttribute("vis");
-		prodotti = (ArrayList) request.getAttribute("lista");
-
-		idUtente = utente.getEmail();
-
+		// SIMULA LA SESSIONE
+		//utente = new Utente();
 		count = (Integer) session.getAttribute("carrello");
-
 	} else {
 		response.sendRedirect("index.jsp");
 	}
@@ -30,7 +22,7 @@
 <html>
 
 <head>
-<title>Prodotti - RBR Store</title>
+<title>RBR Store</title>
 <meta name="description" content="website description" />
 <meta name="keywords" content="website keywords, website keywords" />
 <meta http-equiv="content-type"
@@ -39,13 +31,16 @@
 	title="style" />
 <link rel="stylesheet" type="text/css" href="style/responsive.css" />
 
-<script type="text/javascript" src="js/jquery-3.1.1.js"></script>
-
-<!--  Controlla se un bottone è stato cliccato o meno e passa il valore submit -->
-
+<!--Ultima versione di jQuery (minified) -->
+<script src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
+<!-- Ultima versione di jquery.validate (minfied) -->
+<script
+	src="http://ajax.aspnetcdn.com/ajax/jquery.validate/1.14.0/jquery.validate.min.js"></script>
+<script type="text/javascript" src="js/validationprod.js"></script>
 </head>
 
 <body>
+
 	<section id="main">
 		<header>
 			<section id="logo">
@@ -67,8 +62,8 @@
 				<ul id="menu">
 					<!-- put class="selected" in the li tag for the selected page - to highlight which page you're on -->
 					<li><a href="Indexlog.jsp">Home</a></li>
-					<li><a href="ProdottiLog.jsp">Prodotti</a></li>
-					<li class="selected"><a href="Profilo.jsp">Profilo</a></li>
+					<li class="selected"><a href="ProdottiLog.jsp">Prodotti</a></li>
+					<li><a href="Profilo.jsp">Profilo</a></li>
 					<li><a href="Logout.jsp">Logout</a></li>
 					<li><a href="CarrelloLog.jsp">Carrello</a></li>
 				</ul>
@@ -112,89 +107,74 @@
 				</form>
 			</aside>
 			<section id="content">
-				<h2>
-					Ecco la lista dei prodotti inseriti da te... TAG:
-					<%=utente.getEmail()%></h2>
+				<!-- insert the page content here -->
+				<h1>Aggiungi un prodotto</h1>
 
-
-				<%
-					if (visible == "visible") {
-				%>
-				<table class="table table-hover">
-					<thead class="th-center">
-						<tr>
-							<th>Foto</th>
-							<th>Nome</th>
-							<th>Quantità</th>
-							<th>Condizione</th>
-							<th>Tipo</th>
-							<th>Prezzo Consigliato</th>
-							<th>Offerta
-							<th>Elimina Prodotto</th>
-						</tr>
-					</thead>
-					<tbody>
-
-						<%
-							//int [] itera;
-								//itera = new int [100];
-
-								for (int i = 0; i < prodotti.size(); i++) {
-
-									//itera[i] = prodotti.get(i).getIdProdotto();
-						%>
-						<form action="ModificaProdottoServlet" method="get">
-							<tr>
-								<td><img width="100" height="100"
-									src=<%=prodotti.get(i).getPath()%> alt="Img ND"></td>
-								<input size="3" name="prodott" type="hidden"
-									value="<%=prodotti.get(i).getIdProdotto()%>" />
-								<td><%=prodotti.get(i).getNome()%></td>
-								<td><%=prodotti.get(i).getPrezzo()%></td>
-								<td><%=prodotti.get(i).getQuantità()%></td>
-								<td><%=prodotti.get(i).getCondizione()%></td>
-								<td><%=prodotti.get(i).getTipo()%></td>
-								<td><input type="image" id="addcarr" name="submitta"
-									value="addcarr" src="style/cestino.png" /></td>
-							</tr>
-						</form>
-						<%
-							}
-						%>
-					</tbody>
-				</table>
-				<%
-					} else if (visible == "nulla") {
-				%>
-				<h3>Non hai prodotti...</h3>
-				<%
-					} else {
-				%>
-				<h4>Carica Prodotti...</h4>
-				<%
-					}
-				%>
-				<form action="AddProdotto.jsp" method="get">
+				<form id="insertform" action="ApplicaModificaProdottoServlet"
+					method="post">
 					<section class="form_settings">
 						<br>
-						<p style="padding-top: 20px">
+						<p>
+							<span>Nome</span><input class="contact" type="text"
+								name="prodotto_nome" value="<%=prod.getNome()%>" />
+						
+						</p>
+						<br>
+						<p>
+							<span>Tipo</span><input class="contact" type="text"
+								name="prodotto_tipo" value="<%=prod.getTipo()%>" />
+						</p>
+						<br>
+						<p>
+							<span>Descrizione</span>
+							<textarea class="contact textarea" rows="8" cols="40"
+								name="prodotto_descrizione"><%=prod.getDescrizione()%></textarea>
+						</p>
+						<br>
+						<p>
+							<span>Quantità </span><input class="contact" type="number"
+								min="1" max="10" name="prodotto_quantita" value="<%=prod.getQuantità()%>"
+								placeholder="1-10" />
+						</p>
+						<br>
+						<p>
+							<span>Prezzo </span><input class="contact" type=number step=0.01
+								name="prodotto_prezzo" value="<%=prod.getPrezzo()%>" />
+						</p>
+						<br>
+						<p>
+							<span>Condizione</span><input class="contact" type="text"
+								name="prodotto_codizione" value="<%=prod.getCondizione()%>" />
+						</p>
+						<br>
+						<p>
+							<span>Offerta </span><input class="contact" type="number" min="0"
+								max="100" name="prodotto_offerta" value="<%=prod.getOfferta()%>"
+								 />
+						</p>
+						<br>
+						<p>
+							<span>Link Immagine</span><input class="contact" type="text"
+								name="prodotto_path" value="<%=prod.getPath()%>" />
+						</p>
+						<p style="padding-top: 15px">
 							<span>&nbsp;</span><input class="insert" type="submit"
-								name="contact_submitted" value="Inserisci un Prodotto" />
+								name="contact_submitted" value="Inserisci Prodotto" />
 						</p>
 					</section>
+
 				</form>
 			</section>
 		</section>
+		<footer></footer>
+		<section id="footer">
+			Copyright Template fornito da: &copy; colour_blue, WebApplication
+			creata da &copy; Francesco Garofalo con la collaborazione di Anna
+			Tomeo | <a href="http://validator.w3.org/check?uri=referer">HTML5</a>
+			| <a href="http://jigsaw.w3.org/css-validator/check/referer">CSS</a>
+			| <a href="http://www.html5webtemplates.co.uk">design from
+				HTML5webtemplates.co.uk</a>
+		</section>
 	</section>
-	<footer></footer>
-	<section id="footer">
-		Template fornito da: &copy; colour_blue, WebApplication creata da
-		&copy; Francesco Garofalo con la collaborazione di Anna Tomeo| <a
-			href="http://validator.w3.org/check?uri=referer">HTML5</a> | <a
-			href="http://jigsaw.w3.org/css-validator/check/referer">CSS</a> | <a
-			href="http://www.html5webtemplates.co.uk">design from
-			HTML5webtemplates.co.uk</a>
-	</section>
-
 </body>
 </html>
