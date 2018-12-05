@@ -28,6 +28,11 @@ $().ready(function() {
 			    prodotto_condizione : {
             	required : true
             },
+            prodotto_offerta : {
+            	required : true,
+				minlength : 0,
+				maxlength : 100
+            },
             
             
         },
@@ -55,7 +60,12 @@ $().ready(function() {
             }, 
             prodotto_condizione : {
             	required: "Specifica la condizione"
-            },   			
+            },
+            prodotto_offerta : {
+            	required: "Specifica l'offerta, 0-100 ",
+				minlength: "Minimo 0",
+				maxlength: "Massimo 100"
+            },
         },
         // Settiamo il submit handler per la form
         submitHandler: function(form) { 

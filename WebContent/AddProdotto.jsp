@@ -11,8 +11,8 @@
 	if (utente != null) {
 		// SIMULA LA SESSIONE
 		//utente = new Utente();
-		 count = (Integer) session.getAttribute("carrello");
-		
+		count = (Integer) session.getAttribute("carrello");
+
 	} else {
 		response.sendRedirect("index.jsp");
 	}
@@ -29,12 +29,13 @@
 	content="text/html; charset=windows-1252" />
 <link rel="stylesheet" type="text/css" href="style/style.css"
 	title="style" />
-	<link rel="stylesheet" type="text/css" href="style/responsive.css"/>
-	
-	<!--Ultima versione di jQuery (minified) -->
+<link rel="stylesheet" type="text/css" href="style/responsive.css" />
+
+<!--Ultima versione di jQuery (minified) -->
 <script src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
 <!-- Ultima versione di jquery.validate (minfied) -->
-<script src="http://ajax.aspnetcdn.com/ajax/jquery.validate/1.14.0/jquery.validate.min.js"></script>
+<script
+	src="http://ajax.aspnetcdn.com/ajax/jquery.validate/1.14.0/jquery.validate.min.js"></script>
 <script type="text/javascript" src="js/validationprod.js"></script>
 </head>
 
@@ -79,7 +80,8 @@
 				<h4></h4>
 				<h5>14/02/2017</h5>
 				<p>
-					Il sito simula un e-commerce non inserire dati per pagamento.<br /> <a href="https://www.redbullshop.com/en/">Store Reale</a>
+					Il sito simula un e-commerce non inserire dati per pagamento.<br />
+					<a href="https://www.redbullshop.com/en/">Store Reale</a>
 				</p>
 				<p></p>
 				<h3>Collegamenti Utili</h3>
@@ -129,17 +131,24 @@
 						<br>
 						<p>
 							<span>Quantità </span><input class="contact" type="number"
-								min="1" max="10" name="prodotto_quantita" value="" placeholder="1-10"/>
+								min="1" max="10" name="prodotto_quantita" value=""
+								placeholder="1-10" />
 						</p>
 						<br>
 						<p>
 							<span>Prezzo </span><input class="contact" type=number step=0.01
-								name="prodotto_prezzo" value="" placeholder="x.xx"/>
+								name="prodotto_prezzo" value="" placeholder="x.xx" />
 						</p>
 						<br>
 						<p>
 							<span>Condizione</span><input class="contact" type="text"
 								name="prodotto_codizione" value="" />
+						</p>
+						<br>
+						<p>
+							<span>Offerta </span><input class="contact" type="number"
+								min="0" max="100" name="prodotto_offerta" value="0"
+								placeholder="Percentuale offerta: 0-100, 0 non in offerta" />
 						</p>
 						<br>
 						<p>
@@ -158,10 +167,10 @@
 		<footer></footer>
 		<section id="footer">
 			Copyright Template fornito da: &copy; colour_blue, WebApplication
-			creata da &copy; Francesco Garofalo con la collaborazione di Anna Tomeo | <a
-				href="http://validator.w3.org/check?uri=referer">HTML5</a> | <a
-				href="http://jigsaw.w3.org/css-validator/check/referer">CSS</a> | <a
-				href="http://www.html5webtemplates.co.uk">design from
+			creata da &copy; Francesco Garofalo con la collaborazione di Anna
+			Tomeo | <a href="http://validator.w3.org/check?uri=referer">HTML5</a>
+			| <a href="http://jigsaw.w3.org/css-validator/check/referer">CSS</a>
+			| <a href="http://www.html5webtemplates.co.uk">design from
 				HTML5webtemplates.co.uk</a>
 		</section>
 	</section>
