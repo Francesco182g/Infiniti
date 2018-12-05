@@ -2,9 +2,9 @@
 	Infiniti
 	@copy Francesco Garofalo 2017
  -->
- 
+
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-	import="java.util.*,Beans.*,Database.*,Servlet.*"%>
+	import="java.util.*,  java.math.*, Beans.*,Database.*,Servlet.*"%>
 
 <%
 	Utente utente = (Utente) session.getAttribute("user");
@@ -130,10 +130,12 @@
 						<tr>
 							<th>Foto</th>
 							<th>Nome</th>
-							<th>Prezzo</th>
 							<th>Quantità</th>
 							<th>Condizione</th>
 							<th>Tipo</th>
+							<th>Prezzo Consigliato</th>
+							<th>Offerta</th>
+							<th>Prezzo Offerta</th>
 							<th>Aggiungi a Carrello</th>
 						</tr>
 					</thead>
@@ -154,10 +156,23 @@
 								<input size="3" name="prodott" type="hidden"
 									value="<%=prodotti.get(i).getIdProdotto()%>" />
 								<td><%=prodotti.get(i).getNome()%></td>
-								<td><%=prodotti.get(i).getPrezzo()%></td>
 								<td><%=prodotti.get(i).getQuantità()%></td>
 								<td><%=prodotti.get(i).getCondizione()%></td>
 								<td><%=prodotti.get(i).getTipo()%></td>
+								<td><%=prodotti.get(i).getPrezzo()%></td>
+								<td><%=prodotti.get(i).getOfferta()%></td>
+								<%
+									String prezzo_offerta = "Nessun Offerta";
+											if (prodotti.get(i).getOfferta() == 0) {
+											} else {
+												BigDecimal offerta = BigDecimal.valueOf(prodotti.get(i).getOfferta());
+												BigDecimal prezzoNuovo = prodotti.get(i).getPrezzo().multiply(offerta);
+												prezzoNuovo = prezzoNuovo.divide(BigDecimal.valueOf(100));
+												prezzoNuovo = prodotti.get(i).getPrezzo().subtract(prezzoNuovo);
+												prezzo_offerta = "" + prezzoNuovo;
+											}
+								%>
+								<td><%=prezzo_offerta%></td>
 								<td><input type="image" id="addcarr" name="submitta"
 									value="addcarr" src="style/carrello.png" /></td>
 							</tr>
