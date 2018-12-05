@@ -15,7 +15,7 @@
 	ArrayList<Prodotto> prod = new ArrayList<>();
 	int count = 0;
 	if (utente != null) {
-		
+		 
 		email = utente.getEmail();
 		lista = DatabaseQuery.getCarrello(email);
 
