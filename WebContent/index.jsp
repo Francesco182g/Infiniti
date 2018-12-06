@@ -3,8 +3,9 @@
 	@copy Francesco Garofalo 2017
  -->
 
+<%@page import="Database.DatabaseQuery"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-	import="java.util.*,Beans.*"%>
+	import="java.util.*, java.math.*,Beans.*"%>
 <%
 	Utente utente = (Utente) session.getAttribute("user");
 
@@ -16,6 +17,10 @@
 	} else {
 
 	}
+	
+	//Effettuo la query che mi permette di ritornare elementi
+	ArrayList<Prodotto> offerte= new ArrayList<>();
+	offerte= DatabaseQuery.cerca_Offerte();
 %>
 
 <!DOCTYPE HTML>
@@ -91,6 +96,7 @@
 							placeholder="Cerca Prodotto..." /> <input name="search"
 							type="image" style="border: 0; margin: 0 0 -9px 5px;"
 							src="style/search.png" alt="Search" title="Search" />
+							
 					</p>
 				</form>
 			</aside>
@@ -126,6 +132,63 @@
 							src="style/search.png" alt="Search" title="Search" />
 					</p>
 				</form>
+				
+				
+				<% if (offerte.size()==0){ %>
+					<br><br><h3>Non sono presenti offerte</h3><br><br>
+				<%} else{ %>
+				
+					<br><br><h3>Ecco le nostre offerte</h3><br><br>
+					
+					<table class="table table-hover">
+					<thead class="th-center">
+						<tr>
+							<th>Foto Prodotto</th>
+							<th>idProdotto</th>
+							<th>Nome</th>
+							<th>Quantità</th>
+							<th>Condizione</th>
+							<th>Tipo</th>
+							<th>Prezzo Consigliato</th>
+							<th>Offerta</th>
+							<th>Prezzo Offerta</th>
+						</tr>
+					</thead>
+					<tbody>
+
+						<%
+							for (int i = 0; i < offerte.size(); i++) {
+						%>
+						<tr>
+							<td><img width="70" height="70"
+								src=<%=offerte.get(i).getPath()%> alt="Img ND"></td>
+							<td><%=offerte.get(i).getIdProdotto()%></td>
+							<td><%=offerte.get(i).getNome()%></td>
+							<td><%=offerte.get(i).getQuantità()%></td>
+							<td><%=offerte.get(i).getCondizione()%></td>
+							<td><%=offerte.get(i).getTipo()%></td>
+							<td><%=offerte.get(i).getPrezzo()%></td>
+							<td><%=offerte.get(i).getOfferta()%></td>
+							<% 
+							String prezzo_offerta= "Nessun Offerta";
+							if(offerte.get(i).getOfferta() == 0){
+							} else {
+								BigDecimal offerta = BigDecimal.valueOf(offerte.get(i).getOfferta());
+								BigDecimal prezzoNuovo= offerte.get(i).getPrezzo().multiply(offerta);
+								prezzoNuovo = prezzoNuovo.divide(BigDecimal.valueOf(100));
+								prezzoNuovo = offerte.get(i).getPrezzo().subtract(prezzoNuovo);
+								prezzo_offerta= "" + prezzoNuovo;
+							} %>
+							<td><%=prezzo_offerta%></td>
+						</tr>
+						<%
+							}
+						%>
+					</tbody>
+				</table>
+				<% } %>
+				
+				
 				<script>
 					$("#go1").click(function() {
 						$("#block1").animate({
