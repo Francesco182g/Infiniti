@@ -130,7 +130,7 @@
 							<th>Tipo</th>
 							<th>Prezzo Consigliato</th>
 							<th>Offerta
-							<th>Modifica Prodotto</th>
+							<th>Elimina Prodotto</th>
 						</tr>
 					</thead>
 					<tbody>
@@ -150,13 +150,12 @@
 								<input size="3" name="prodott" type="hidden"
 									value="<%=prodotti.get(i).getIdProdotto()%>" />
 								<td><%=prodotti.get(i).getNome()%></td>
+								<td><%=prodotti.get(i).getPrezzo()%></td>
 								<td><%=prodotti.get(i).getQuantità()%></td>
 								<td><%=prodotti.get(i).getCondizione()%></td>
 								<td><%=prodotti.get(i).getTipo()%></td>
-								<td><%=prodotti.get(i).getPrezzo()%></td>
-								<td><%=prodotti.get(i).getOfferta()%></td>
 								<td><input type="image" id="addcarr" name="submitta"
-									value="addcarr" src="style/modifica.png" /></td>
+									value="addcarr" src="style/cestino.png" /></td>
 							</tr>
 						</form>
 						<%

@@ -108,7 +108,7 @@
 			</aside>
 			<section id="content">
 				<!-- insert the page content here -->
-				<h1>Modifica un prodotto</h1>
+				<h1>Aggiungi un prodotto</h1>
 
 				<form id="insertform" action="ApplicaModificaProdottoServlet"
 					method="post">
@@ -116,8 +116,8 @@
 						<br>
 						<p>
 							<span>Nome</span><input class="contact" type="text"
-								name="prodotto_nome" disabled value="<%=prod.getNome()%> " />
-
+								name="prodotto_nome" value="<%=prod.getNome()%>" />
+						
 						</p>
 						<br>
 						<p>
@@ -133,8 +133,8 @@
 						<br>
 						<p>
 							<span>Quantità </span><input class="contact" type="number"
-								min="1" max="10" name="prodotto_quantita"
-								value="<%=prod.getQuantità()%>" placeholder="1-10" />
+								min="1" max="10" name="prodotto_quantita" value="<%=prod.getQuantità()%>"
+								placeholder="1-10" />
 						</p>
 						<br>
 						<p>
@@ -149,7 +149,8 @@
 						<br>
 						<p>
 							<span>Offerta </span><input class="contact" type="number" min="0"
-								max="100" name="prodotto_offerta" value="<%=prod.getOfferta()%>" />
+								max="100" name="prodotto_offerta" value="<%=prod.getOfferta()%>"
+								 />
 						</p>
 						<br>
 						<p>
@@ -158,23 +159,10 @@
 						</p>
 						<p style="padding-top: 15px">
 							<span>&nbsp;</span><input class="insert" type="submit"
-								name="contact_submitted" value="Modifica Prodotto" />
+								name="contact_submitted" value="Inserisci Prodotto" />
 						</p>
 					</section>
 
-				</form>
-				<form id="insertform" action="EliminaProdottoServlet"
-					method="post">
-					<section class="form_settings">
-					<input class="contact" type="hidden"
-								name="prodotto_id" value="<%=prod.getIdProdotto()%>"/>
-					<p style="padding-top: 15px">
-					
-						<span>&nbsp;</span><input class="insert" type="submit"
-							name="contact_submitted" value="Elimina Prodotto" />
-							
-					</p>
-					</section>
 				</form>
 			</section>
 		</section>
