@@ -903,7 +903,7 @@ public class DatabaseQuery {
 	 * @throws SQLException
 	 * @author   
 	 */
-	public synchronized static ArrayList modifica_Prodotto(Prodotto prodotto, String email) throws SQLException{
+	public synchronized static ArrayList modifica_Prodotto(Prodotto prodotto) throws SQLException{
 		Connection connection = null;
 		PreparedStatement psListProdotti= null;
 		
