@@ -5,6 +5,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
+import java.util.Collections;
 
 import Beans.Admin;
 import Beans.Carrello;
@@ -32,6 +33,10 @@ public class DatabaseQuery {
 	private static String queryGetProdottoById;
 	private static String queryGetProdottoByUser;
 	private static String queryGetNumeroProdotto;
+	
+	//Query gestione offerte
+	private static String queryGetOfferte;
+	private static String queryModificaProdotto;
 
 	/*
 	 * Query gestione Ordini e Carrello
@@ -833,6 +838,115 @@ public class DatabaseQuery {
 
 		return true;
 	}
+	
+	
+	/**
+	 * Ritorna i prodotti in offerta
+	 * 
+	 * @param nomeProdotto
+	 * @return ArrayList cercaProdotti
+	 * @throws SQLException
+	 * @author   
+	 */
+	public synchronized static ArrayList cerca_Offerte() throws SQLException{
+		Connection connection = null;
+		PreparedStatement psListProdotti= null;
+		
+		ArrayList<Prodotto> prodotti_offerta= new ArrayList<>();
+		
+		try{
+			connection = Database.getConnection();
+			psListProdotti = connection.prepareStatement(queryGetOfferte);
+			
+			ResultSet rs = psListProdotti.executeQuery();
+
+			while(rs.next()){
+				Prodotto pr = new Prodotto();
+				pr.setIdProdotto(rs.getInt("idProdotto"));
+				pr.setDescrizione(rs.getString("Descrizione"));
+				pr.setQuantità(rs.getInt("Quantità"));
+				pr.setPrezzo(rs.getBigDecimal("PrezzoSingolo"));
+				pr.setTipo(rs.getString("Tipo"));
+				pr.setCondizione(rs.getString("Condizione"));
+				pr.setNome(rs.getString("Nome"));
+				pr.setIdUtente(rs.getString("idUtente"));
+				pr.setPath(rs.getString("Path"));
+				pr.setOfferta(rs.getInt("Offerta"));
+
+				prodotti_offerta.add(pr);
+			}
+
+		}
+		finally {
+			try {
+				if(psListProdotti != null)
+					psListProdotti.close();
+				if(psListProdotti !=null)
+					psListProdotti.close();
+			} catch(SQLException e) {
+				e.printStackTrace();
+			}
+			finally {
+				connection.close();
+				Database.releaseConnection(connection);
+			}
+		}
+		return prodotti_offerta;
+	}
+	
+	
+	/**
+	 * Modifica un determinato prodotto
+	 * 
+	 * @param nomeProdotto
+	 * @return void
+	 * @throws SQLException
+	 * @author   
+	 */
+	public synchronized static ArrayList modifica_Prodotto(Prodotto prodotto, String email) throws SQLException{
+		Connection connection = null;
+		PreparedStatement psListProdotti= null;
+		
+		ArrayList<Prodotto> prodotti_offerta= new ArrayList<>();
+		
+		try{
+			connection = Database.getConnection();
+			psListProdotti = connection.prepareStatement(queryModificaProdotto);
+			psListProdotti.setInt(1, prodotto.getIdProdotto());
+
+			ResultSet rs = psListProdotti.executeQuery();
+
+			while(rs.next()){
+				Prodotto pr = new Prodotto();
+				pr.setDescrizione(rs.getString("Descrizione"));
+				pr.setQuantità(rs.getInt("Quantità"));
+				pr.setPrezzo(rs.getBigDecimal("PrezzoSingolo"));
+				pr.setTipo(rs.getString("Tipo"));
+				pr.setCondizione(rs.getString("Condizione"));
+				pr.setNome(rs.getString("Nome"));
+				pr.setPath(rs.getString("Path"));
+				pr.setOfferta(rs.getInt("Offerta"));
+
+				prodotti_offerta.add(pr);
+			}
+
+		}
+		finally {
+			try {
+				if(psListProdotti != null)
+					psListProdotti.close();
+				if(psListProdotti !=null)
+					psListProdotti.close();
+			} catch(SQLException e) {
+				e.printStackTrace();
+			}
+			finally {
+				connection.close();
+				Database.releaseConnection(connection);
+			}
+		}
+		return prodotti_offerta;
+	}
 
 
 
@@ -860,6 +974,8 @@ public class DatabaseQuery {
 		queryGetNumeroProdotto = "SELECT * FROM commerce1.carrello WHERE idUtente = ?";
 		queryGetUtenti = "SELECT * FROM commerce1.user";
 		queryGetAdmin = "SELECT * FROM commerce1.admin WHERE idadmin = ?";
+		queryGetOfferte= "SELECT * FROM commerce1.prodotto WHERE offerta>0";
+		queryModificaProdotto= "UPDATE commerce1.prodotto SET Descrizione= ?, Quantità= ?, PrezzoSingolo= ?, Tipo= ?, Condizione= ?, Nome= ?, Path= ?, Offerta=? WHERE idProdotto=?";
 	}
 
 }

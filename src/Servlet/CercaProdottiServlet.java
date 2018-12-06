@@ -1,5 +1,6 @@
 package Servlet;
 
+import java.awt.Checkbox;
 import java.io.IOException;
 import java.sql.SQLException;
 import java.util.ArrayList;
@@ -41,7 +42,8 @@ public class CercaProdottiServlet extends HttpServlet {
 		HttpSession session = request.getSession();
 		Utente utente = (Utente)session.getAttribute("user");
 		
-		String nomeProdotto = request.getParameter("nomeProdotto");
+		String nomeProdotto = request.getParameter("nomeProdotto"); 
+		
 		try{
 			//System.out.println("NomeProdotto:" +nomeProdotto);
 			listProdotti = DatabaseQuery.cercaProdotti(nomeProdotto);
