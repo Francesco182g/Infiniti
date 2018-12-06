@@ -38,6 +38,10 @@ public class ApplicaModificaServlet extends HttpServlet {
 		HttpSession session = request.getSession();
 		Utente u = (Utente) session.getAttribute("user");
 		
+		String id = request.getParameter("prodotto_id");
+		int idprod = Integer.parseInt(id);
+		
+		
 		String Nome = request.getParameter("prodotto_nome");
 		System.out.println(Nome);
 		
@@ -68,7 +72,7 @@ public class ApplicaModificaServlet extends HttpServlet {
 		int offerta = Integer.parseInt(request.getParameter("prodotto_offerta"));
 		System.out.println(offerta);
 		
-		Prodotto prodotto = new Prodotto(0, Descrizione, Quantità, Prezzo, Tipo, Condizione, Nome, Path, null, offerta);
+		Prodotto prodotto = new Prodotto(idprod, Descrizione, Quantità, Prezzo, Tipo, Condizione, Nome, Path, null, offerta);
 		System.out.println(prodotto);
 		
 		try {
@@ -76,10 +80,9 @@ public class ApplicaModificaServlet extends HttpServlet {
 				System.out.println("Utente non loggato prodotto non inserito, jsp di errore.");
 				request.getRequestDispatcher("InvitoLogReg.jsp").forward(request, response);
 			} else  {
-					//DatabaseQuery.delProdotto(prodotto.getIdProdotto());
 					DatabaseQuery.modifica_Prodotto(prodotto);
 					System.out.println("Prodotto modificato da: " + u.getEmail());
-					request.getRequestDispatcher("MieiProdotti.jsp").forward(request, response);
+					request.getRequestDispatcher("Profilo.jsp").forward(request, response);
 
 			}
 		} catch (SQLException e) {

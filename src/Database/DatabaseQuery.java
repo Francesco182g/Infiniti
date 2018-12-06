@@ -903,40 +903,34 @@ public class DatabaseQuery {
 	 * @throws SQLException
 	 * @author   
 	 */
-	public synchronized static ArrayList modifica_Prodotto(Prodotto prodotto) throws SQLException{
+	public synchronized static void modifica_Prodotto(Prodotto prodotto) throws SQLException{
 		Connection connection = null;
-		PreparedStatement psListProdotti= null;
+		PreparedStatement pr= null;
 		
-		ArrayList<Prodotto> prodotti_offerta= new ArrayList<>();
 		
 		try{
 			connection = Database.getConnection();
-			psListProdotti = connection.prepareStatement(queryModificaProdotto);
-			psListProdotti.setInt(1, prodotto.getIdProdotto());
+			pr = connection.prepareStatement(queryModificaProdotto);			
 
-			ResultSet rs = psListProdotti.executeQuery();
+				pr.setString(1, prodotto.getDescrizione());
+				pr.setInt(2, prodotto.getQuantità());
+				pr.setBigDecimal(3, prodotto.getPrezzo());
+				pr.setString(4, prodotto.getTipo());
+				pr.setString(5, prodotto.getCondizione());
+				pr.setString(6, prodotto.getNome());
+				pr.setString(7, prodotto.getPath());
+				pr.setInt(8, prodotto.getOfferta());
+				pr.setInt(9, prodotto.getIdProdotto());
 
-			while(rs.next()){
-				Prodotto pr = new Prodotto();
-				pr.setDescrizione(rs.getString("Descrizione"));
-				pr.setQuantità(rs.getInt("Quantità"));
-				pr.setPrezzo(rs.getBigDecimal("PrezzoSingolo"));
-				pr.setTipo(rs.getString("Tipo"));
-				pr.setCondizione(rs.getString("Condizione"));
-				pr.setNome(rs.getString("Nome"));
-				pr.setPath(rs.getString("Path"));
-				pr.setOfferta(rs.getInt("Offerta"));
-
-				prodotti_offerta.add(pr);
-			}
-
+				pr.executeUpdate();
+				connection.commit();
 		}
 		finally {
 			try {
-				if(psListProdotti != null)
-					psListProdotti.close();
-				if(psListProdotti !=null)
-					psListProdotti.close();
+				if(pr != null)
+					pr.close();
+				if(pr !=null)
+					pr.close();
 			} catch(SQLException e) {
 				e.printStackTrace();
 			}
@@ -945,7 +939,6 @@ public class DatabaseQuery {
 				Database.releaseConnection(connection);
 			}
 		}
-		return prodotti_offerta;
 	}
 
 
