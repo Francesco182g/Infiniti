@@ -44,7 +44,7 @@ public class ModificaProdottoServlet extends HttpServlet {
 			try {
 				Prodotto prod = DatabaseQuery.getProdotto(idProdotto);
 				request.setAttribute("prodotto", prod);
-				request.getRequestDispatcher("Profilo.jsp").forward(request, response);
+				request.getRequestDispatcher("ModificaProdotto.jsp").forward(request, response);
 			} catch (SQLException e) {
 				e.printStackTrace();
 			}
