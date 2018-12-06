@@ -14,6 +14,14 @@ import Beans.Utente;
 public class TestDatabase {
 
 	public static void main(String[] args) throws SQLException {
+
+		BigDecimal prezzo = new BigDecimal(30);
+
+		Prodotto prodotto = new Prodotto (5, "FASULOSSS", 2, prezzo, "tipo", "CONDIZONE DI MERDA", "St", "fdsfdsfds", "fasulo@fasulo.it", 10);
+		 DatabaseQuery.modifica_Prodotto(prodotto);
+		 
+		 System.out.println(DatabaseQuery.getProdotto(5));
+	}
 		/*
 		String email = "francesco182@hotmail.it";
 		String nome = "Francesco";
@@ -80,5 +88,4 @@ public class TestDatabase {
 		
 		//ArrayList prod = DatabaseQuery.getUtentiAll();
 		//System.out.println(prod);
-	}
 }
