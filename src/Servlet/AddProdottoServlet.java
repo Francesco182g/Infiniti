@@ -64,7 +64,7 @@ public class AddProdottoServlet extends HttpServlet {
 		System.out.println(Path);	
 		
 		/*
-		 * Aggiunta del codice per la gestione dell'offerta
+		 * MODIFICA: Aggiunta del codice per la gestione dell'offerta
 		 */
 		int offerta = Integer.parseInt(request.getParameter("prodotto_offerta"));
 		System.out.println(offerta);

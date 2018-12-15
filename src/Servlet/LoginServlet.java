@@ -36,9 +36,15 @@ public class LoginServlet extends HttpServlet {
 		
 		String Email = request.getParameter("user_email"); 
 		System.out.print(Email);
+		if(Email.length() < 5 | Email.length() > 45) {
+			request.getRequestDispatcher("errorlog.jsp").forward(request, response);
+		}
 		
 		String Password = request.getParameter("user_password");
 		System.out.println(Password);
+		if(Password.length() < 5 | Password.length() > 8) {
+			request.getRequestDispatcher("errorlog.jsp").forward(request, response);
+		}
 		
 		try {
 		

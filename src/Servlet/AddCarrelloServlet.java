@@ -10,6 +10,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import Beans.Prodotto;
 import Beans.Utente;
 import Database.DatabaseQuery;
 
@@ -46,8 +47,13 @@ public class AddCarrelloServlet extends HttpServlet {
 		} else {
 			System.out.println("Servlet: ricevuta richiesta inserimento");
 			int idProdotto = Integer.parseInt(Prodotto);
-			
+
 			try {
+				Prodotto p = DatabaseQuery.getProdotto(idProdotto);
+				if(p.getUtente() == user) {
+					request.getRequestDispatcher("CarrelloLog.jsp").forward(request, response);
+				}
+				
 				DatabaseQuery.addCarrello(idProdotto, user);
 				System.out.println("Servlet: Aggiungo al carrello " +user+ " id: " +idProdotto);
 				int c = DatabaseQuery.getCountCarrello(user);
