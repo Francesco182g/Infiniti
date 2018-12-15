@@ -72,9 +72,6 @@ public class RegistrazioneServlet extends HttpServlet {
 
 
 		String Foto = request.getParameter("user_foto");
-		if(Foto.length() < 1 | Foto.length() > 45) {
-			request.getRequestDispatcher("errorreg.jsp").forward(request, response);
-		}
 
 
 		Utente u = new Utente(Email, Nome, Cognome, Password, Sesso, Foto);
