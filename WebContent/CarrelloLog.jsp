@@ -15,28 +15,22 @@
 	ArrayList<Prodotto> prod = new ArrayList<>();
 	int count = 0;
 	if (utente != null) {
-		 
+		
 		email = utente.getEmail();
 		lista = DatabaseQuery.getCarrello(email);
 
 		System.out.println(lista);
-
+		//Check Quantità e add to array prod
 		for (int i = 0; i < lista.size(); i++) {
 			Prodotto p = DatabaseQuery.getProdotto(lista.get(i).getIdProdotto());
-			if(p.getOfferta() == 0){
-				prod.add(p);
+			if(p.getQuantità() != 0){
+				prod.add(p);	
 			} else {
-				BigDecimal offerta = BigDecimal.valueOf(p.getOfferta());
-				BigDecimal prezzoNuovo= p.getPrezzo().multiply(offerta);
-				prezzoNuovo = prezzoNuovo.divide(BigDecimal.valueOf(100));
-				prezzoNuovo = p.getPrezzo().subtract(prezzoNuovo);
-				p.setPrezzo(prezzoNuovo);
-				prod.add(p);
+				DatabaseQuery.delProdottoCarrello(lista.get(i).getIdProdotto());
 			}
-			
 		}
 
-		count = (Integer) session.getAttribute("carrello");
+		count = prod.size();
 
 	} else {
 

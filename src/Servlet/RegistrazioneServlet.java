@@ -19,45 +19,67 @@ import Database.DatabaseQuery;
 @WebServlet("/RegistrazioneServlet")
 public class RegistrazioneServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-       
-    /**
-     * @see HttpServlet#HttpServlet()
-     */
-    public RegistrazioneServlet() {
-        super();
-        // TODO Auto-generated constructor stub
-    }
+
+	/**
+	 * @see HttpServlet#HttpServlet()
+	 */
+	public RegistrazioneServlet() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
 
 	/**
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		
+
 		String Email = request.getParameter("user_email");
 		System.out.println(Email);
-		
+		if(Email.length() < 5 | Email.length() > 45) {
+			request.getRequestDispatcher("errorreg.jsp").forward(request, response);
+		}
+
+
 		String Nome = request.getParameter("user_nome"); 
 		System.out.print(Nome);
-		
+		if(Nome.length() < 1 | Nome.length() > 45) {
+			request.getRequestDispatcher("errorreg.jsp").forward(request, response);
+		}
+
 		String Cognome = request.getParameter("user_cognome");
-		System.out.println(Cognome);
-		
+		if(Cognome.length() < 1 | Cognome.length() > 45) {
+			request.getRequestDispatcher("errorreg.jsp").forward(request, response);
+		}
+
+
 		String Password = request.getParameter("user_password");
-		System.out.println(Password);
-		
+		if(Password.length() < 5 | Password.length() > 8) {
+			request.getRequestDispatcher("errorreg.jsp").forward(request, response);
+		}
+
 		String confPassword = request.getParameter("user_confpassword");
+		if(confPassword.length() < 5 | confPassword.length() > 8) {
+			request.getRequestDispatcher("errorreg.jsp").forward(request, response);
+		}
 		System.out.println(confPassword);
-		
+
+		//Controlla che Password e confPassword siano uguali
+		if(Password!=confPassword) {
+			request.getRequestDispatcher("errorreg.jsp").forward(request, response);
+		}
+
 		String Sesso = request.getParameter("user_sesso");
-		System.out.println(Sesso);
-		
+
+
 		String Foto = request.getParameter("user_foto");
-		System.out.println(Foto);
-		
-		
+		if(Foto.length() < 1 | Foto.length() > 45) {
+			request.getRequestDispatcher("errorreg.jsp").forward(request, response);
+		}
+
+
 		Utente u = new Utente(Email, Nome, Cognome, Password, Sesso, Foto);
 		System.out.println(u);
-		
+
 		try {
 			DatabaseQuery.addUser(u);
 			request.getRequestDispatcher("Login.jsp").forward(request, response);
@@ -66,7 +88,7 @@ public class RegistrazioneServlet extends HttpServlet {
 			request.getRequestDispatcher("errorreg.jsp").forward(request, response);
 			e.printStackTrace();
 		}
-		
+
 	}
 
 	/**

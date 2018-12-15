@@ -48,6 +48,7 @@ public class DatabaseQuery {
 	private static String queryGetCarrello;
 	private static String queryGetProdottiById;
 	private static String queryEliminaCarrello;
+	private static String queryEliminaProdottoCarrello;
 
 	/*
 	 * Query Gestione Admin
@@ -839,6 +840,38 @@ public class DatabaseQuery {
 		return true;
 	}
 	
+	/**
+	 * Elimina un prodotto dal carrello di un utente dal database
+	 * 
+	 * @param email
+	 * @return boolean value
+	 * @throws SQLException
+	 * @author Francesco 
+	 */
+	public synchronized static boolean delProdottoCarrello(int idProdotto) throws SQLException{
+		Connection connection = null;
+		PreparedStatement psDelCarrello = null;
+
+		try{
+			connection = Database.getConnection();
+			psDelCarrello = connection.prepareStatement(queryEliminaProdottoCarrello);
+			psDelCarrello.setInt(1, idProdotto);
+
+			psDelCarrello.executeUpdate();
+
+			connection.commit();
+		} finally {
+			try{
+				if(psDelCarrello != null)
+					psDelCarrello.close();
+			} finally {
+				Database.releaseConnection(connection);
+			}
+		}
+
+		return true;
+	}
+	
 	
 	/**
 	 * Ritorna i prodotti in offerta
@@ -964,6 +997,7 @@ public class DatabaseQuery {
 		queryAddOrdine = "INSERT INTO commerce1.ordine (idOrdine, idProdotto, idUtente, Data, Pagamento, Indirizzo, Note, Prezzo) VALUES (?,?,?,?,?,?,?,?)";
 		queryGetCarrello = "SELECT * FROM commerce1.carrello WHERE idUtente = ?";
 		queryEliminaCarrello = "DELETE FROM commerce1.carrello WHERE idUtente = ?";
+		queryEliminaProdottoCarrello = "DELETE FROM sql2200261.prodotto WHERE idProdotto = ?";
 		queryGetNumeroProdotto = "SELECT * FROM commerce1.carrello WHERE idUtente = ?";
 		queryGetUtenti = "SELECT * FROM commerce1.user";
 		queryGetAdmin = "SELECT * FROM commerce1.admin WHERE idadmin = ?";

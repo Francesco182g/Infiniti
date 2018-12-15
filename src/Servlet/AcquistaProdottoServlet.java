@@ -47,13 +47,24 @@ public class AcquistaProdottoServlet extends HttpServlet {
 
 		String email =  u.getEmail();
 
+		
 		String Pagamento = request.getParameter("pagamento");
+		if(Pagamento.length() < 5 | Pagamento.length() > 45) {
+			request.getRequestDispatcher("CarrelloLog.jsp").forward(request, response);
+		}
 		System.out.println(Pagamento);
 
 		String Indirizzo = request.getParameter("indirizzo"); 
+		if(Indirizzo.length() < 5 | Indirizzo.length() > 50) {
+			request.getRequestDispatcher("CarrelloLog.jsp").forward(request, response);
+		}
 		System.out.print(Indirizzo);
 
+		
 		String Descrizione = request.getParameter("descrizione");
+		if(Descrizione.length() < 5 | Descrizione.length() > 100) {
+			request.getRequestDispatcher("CarrelloLog.jsp").forward(request, response);
+		}
 		System.out.println(Descrizione);
 
 		LocalDate localDate = LocalDate.now();

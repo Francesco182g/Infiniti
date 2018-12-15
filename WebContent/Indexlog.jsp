@@ -33,9 +33,9 @@
 		response.sendRedirect("index.jsp");
 
 	}
-	
-	ArrayList<Prodotto> offerte= new ArrayList<>();
-	offerte= DatabaseQuery.cerca_Offerte();
+
+	ArrayList<Prodotto> offerte = new ArrayList<>();
+	offerte = DatabaseQuery.cerca_Offerte();
 %>
 
 <!DOCTYPE HTML>
