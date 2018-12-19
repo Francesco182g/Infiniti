@@ -2,7 +2,7 @@
 	Infiniti
 	@copy Francesco Garofalo 2017
  -->
- 
+
 <!DOCTYPE HTML>
 <html>
 
@@ -14,8 +14,8 @@
 	content="text/html; charset=windows-1252" />
 <link rel="stylesheet" type="text/css" href="style/style.css"
 	title="style" />
-	<link rel="stylesheet" type="text/css" href="style/responsive.css"/>
-	
+<link rel="stylesheet" type="text/css" href="style/responsive.css" />
+
 </head>
 
 <body>
@@ -51,11 +51,12 @@
 		<section id="site_content">
 			<aside>
 				<!-- insert your sidebar items here -->
-				
+
 				<h4></h4>
 				<h5>14/02/2017</h5>
 				<p>
-					Il sito simula un e-commerce non inserire dati per pagamento.<br /> <a href="https://www.redbullshop.com/en/">Store Reale</a>
+					Il sito simula un e-commerce non inserire dati per pagamento.<br />
+					<a href="https://www.redbullshop.com/en/">Store Reale</a>
 				</p>
 				<p></p>
 				<h3>Collegamenti Utili</h3>
@@ -87,11 +88,13 @@
 					<section class="form_settings">
 						<p>
 							<span>Email</span><input class="contact" type="email"
-								name="user_email" value="" />
+								name="user_email" value=""
+								pattern=".{5,40}{[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}}$"
+								required />
 						</p>
 						<p>
 							<span>Password</span><input class="contact" type="password"
-								name="user_password" value="" />
+								name="user_password" value="" pattern="[a-zA-Z0-9]{5,8}$" />
 						</p>
 						<p style="padding-top: 15px">
 							<span>&nbsp;</span><input class="submit" type="submit"

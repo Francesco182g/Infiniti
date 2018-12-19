@@ -678,6 +678,9 @@ public class DatabaseQuery {
 				Database.releaseConnection(connection);
 			}
 		}
+		if(pr.getNome() == null) {
+			pr = null;
+		}
 		return pr;
 	}
 

@@ -95,7 +95,7 @@ public class GestioneProdottiTest {
 		DatabaseQuery.delProdotto(id_prodotto);
 		System.out.println("Identificativo del prodotto di ritorno: " + id_prodotto);
 		Prodotto p= DatabaseQuery.getProdotto(id_prodotto);
-		System.out.println(p.toString());
+		
 		assertEquals(p, null);
 	}
 }
