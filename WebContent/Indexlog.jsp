@@ -119,7 +119,7 @@
 				<form id="search" method="get" action="CercaProdottiServlet">
 					<p>
 						<input class="search" type="text" name="nomeProdotto"
-							placeholder="Cerca Prodotto..." /> <input name="search"
+							placeholder="Cerca Prodotto..." pattern=".{1,50}[a-zA-Z0-9]+"/> <input name="search"
 							type="image" style="border: 0; margin: 0 0 -9px 5px;"
 							src="style/search.png" alt="Search" title="Search" />
 					</p>
@@ -149,7 +149,7 @@
 				<form id="search" method="get" action="CercaProdottiServlet">
 					<p>
 						<input class="search" type="text" name="nomeProdotto"
-							placeholder="Cerca Prodotto..." /> <input name="search"
+							placeholder="Cerca Prodotto..." pattern=".{1,50}[a-zA-Z0-9]+"/> <input name="search"
 							type="image" style="border: 0; margin: 0 0 -9px 5px;"
 							src="style/search.png" alt="Search" title="Search" />
 					</p>
