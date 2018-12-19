@@ -12,6 +12,7 @@ import org.junit.Test;
 import org.junit.runners.MethodSorters;
 @FixMethodOrder(MethodSorters.NAME_ASCENDING)
 public class GestioneUtenteTest {
+	
 	//Dichiarazione delle variabili di istanza che permettono di controllare se il valore è presente all'interno del sistema
 	private static final String email= "Francesco@Garofalo.com";
 	private static final String nome= "Giovanni";
@@ -21,7 +22,6 @@ public class GestioneUtenteTest {
 	private static final String sesso= "u";
 	
 	private static Utente utente;
-	
 	//Testo il metodo della registrazione
 	@Test
 	public void check1_Registrazione() throws SQLException {
