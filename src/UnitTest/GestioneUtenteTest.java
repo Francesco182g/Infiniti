@@ -43,7 +43,7 @@ public class GestioneUtenteTest {
   
   //Metodo che permette di testare la logout
   @Test
-  public void check3_Delete() throws SQLException {
+  public void check4_Delete() throws SQLException {
     DatabaseQuery.delUser(email);
     Utente u = DatabaseQuery.getUtenteByID(email);
     assertEquals(u, null);
