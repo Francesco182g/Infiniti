@@ -7,8 +7,10 @@ import static org.junit.Assert.*;
 
 import java.sql.SQLException;
 
+import org.junit.FixMethodOrder;
 import org.junit.Test;
-
+import org.junit.runners.MethodSorters;
+@FixMethodOrder(MethodSorters.NAME_ASCENDING)
 public class GestioneUtenteTest {
 
 	//Dichiarazione delle variabili di istanza che permettono di controllare se il valore è presente all'interno del sistema
@@ -21,13 +23,10 @@ public class GestioneUtenteTest {
 	
 	private static Utente utente;
 	
-	public GestioneUtenteTest() {
-		utente= new Utente(email, nome, cognome, password, conferma_password, sesso);
-	}
-	
 	//Testo il metodo della registrazione
 	@Test
-	public void check_Registrazione() throws SQLException {
+	public void check1_Registrazione() throws SQLException {
+		utente= new Utente(email, nome, cognome, password, sesso, "foto");
 		DatabaseQuery.addUser(utente);
 		Utente u = DatabaseQuery.getUtenteByID(email);
 		System.out.println(u.toString());
@@ -37,14 +36,14 @@ public class GestioneUtenteTest {
 	
 	//Metodo che successivamente va a testare la login
 	@Test
-	public void check_Login() throws SQLException {
+	public void check2_Login() throws SQLException {
 		Utente u = DatabaseQuery.getUtenteByID(email);
 		assertEquals(utente, u);
 	}
 	
 	//Metodo che permette di testare la logout
 	@Test
-	public void check_Delete() throws SQLException {
+	public void check3_Delete() throws SQLException {
 		DatabaseQuery.delUser(email);
 		Utente u = DatabaseQuery.getUtenteByID(email);
 		assertEquals(u, null);
