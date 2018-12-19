@@ -30,6 +30,7 @@ public class GestioneUtenteTest {
     Utente u = DatabaseQuery.getUtenteByID(email);
     System.out.println(u.toString());
     assertEquals(u, utente);
+    //Ciaoo
   }
   
   
