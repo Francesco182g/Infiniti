@@ -33,10 +33,11 @@
 
 <!--Ultima versione di jQuery (minified) -->
 <script src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
-<!-- Ultima versione di jquery.validate (minfied) -->
+<!-- Ultima versione di jquery.validate (minfied) 
 <script
 	src="http://ajax.aspnetcdn.com/ajax/jquery.validate/1.14.0/jquery.validate.min.js"></script>
 <script type="text/javascript" src="js/validationprod.js"></script>
+-->
 </head>
 
 <body>
@@ -115,44 +116,44 @@
 						<br>
 						<p>
 							<span>Nome</span><input class="contact" type="text"
-								name="prodotto_nome" value="" />
+								name="prodotto_nome" value="" pattern="[a-zA-Z0-9]{2,45}$" required/>
 						</p>
 						<br>
 						<p>
 							<span>Tipo</span><input class="contact" type="text"
-								name="prodotto_tipo" value="" />
+								name="prodotto_tipo" value="" pattern="[a-zA-Z0-9]{2,45}$" required />
 						</p>
 						<br>
 						<p>
 							<span>Descrizione</span>
 							<textarea class="contact textarea" rows="8" cols="40"
-								name="prodotto_descrizione"></textarea>
+								name="prodotto_descrizione" pattern="[a-zA-Z0-9.,]{5,100}$" required></textarea>
 						</p>
 						<br>
 						<p>
 							<span>Quantità </span><input class="contact" type="number"
 								min="1" max="10" name="prodotto_quantita" value=""
-								placeholder="1-10" />
+								placeholder="1-10" pattern="[0-9]{1,2}$" required />
 						</p>
 						<br>
 						<p>
 							<span>Prezzo </span><input class="contact" type=number step=0.01
-								name="prodotto_prezzo" value="" placeholder="x.xx" required />
+								name="prodotto_prezzo" value="" placeholder="x.xx" pattern="[0-9]+(\\.[0-9][0-9]?)?" required />
 						</p>
 						<br>
 						<p>
 							<span>Condizione</span><input class="contact" type="text"
-								name="prodotto_codizione" value="" pattern="[a-zA-Z]" required/>
+								name="prodotto_codizione" value="" pattern="[a-zA-Z0-9]{3,40}$" required/>
 						</p>
 						<br>
 						<p>
 							<span>Offerta </span><input class="contact" type="number"
 								min="0" max="100" name="prodotto_offerta" value="0"
-								placeholder="Percentuale offerta: 0-100, 0 non in offerta"/>
+								placeholder="Percentuale offerta: 0-100, 0 non in offerta" pattern="[0-9]{3}$" required/>
 						</p>
 						<br>
 						<p>
-							<span>Link Immagine</span><input class="contact" type="text"
+							<span>Link Immagine</span><input class="contact" type="url"
 								name="prodotto_path" value="" />
 						</p>
 						<p style="padding-top: 15px">

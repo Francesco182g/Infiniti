@@ -124,38 +124,38 @@
 						<br>
 						<p>
 							<span>Tipo</span><input class="contact" type="text"
-								name="prodotto_tipo" value="<%=prod.getTipo()%>" />
+								name="prodotto_tipo" value="<%=prod.getTipo()%>" pattern="[a-zA-Z0-9]{2,45}$" required/>
 						</p>
 						<br>
 						<p>
 							<span>Descrizione</span>
 							<textarea class="contact textarea" rows="8" cols="40"
-								name="prodotto_descrizione"><%=prod.getDescrizione()%></textarea>
+								name="prodotto_descrizione" pattern="[a-zA-Z0-9.,]{5,100}$" required><%=prod.getDescrizione()%> </textarea>
 						</p>
 						<br>
 						<p>
 							<span>Quantità </span><input class="contact" type="number"
 								min="1" max="10" name="prodotto_quantita"
-								value="<%=prod.getQuantità()%>" placeholder="1-10" />
+								value="<%=prod.getQuantità()%>" placeholder="1-10" pattern="[0-9]{1,2}$" required />
 						</p>
 						<br>
 						<p>
 							<span>Prezzo </span><input class="contact" type=number step=0.01
-								name="prodotto_prezzo" value="<%=prod.getPrezzo()%>" />
+								name="prodotto_prezzo" value="<%=prod.getPrezzo()%>" pattern="[0-9]+(\\.[0-9][0-9]?)?" required />
 						</p>
 						<br>
 						<p>
 							<span>Condizione</span><input class="contact" type="text"
-								name="prodotto_codizione" value="<%=prod.getCondizione()%>" />
+								name="prodotto_codizione" value="<%=prod.getCondizione()%>" pattern="[a-zA-Z0-9]{3,40}$" required />
 						</p>
 						<br>
 						<p>
 							<span>Offerta </span><input class="contact" type="number" min="0"
-								max="100" name="prodotto_offerta" value="<%=prod.getOfferta()%>" />
+								max="100" name="prodotto_offerta" value="<%=prod.getOfferta()%>" pattern="[0-9]{3}$" required />
 						</p>
 						<br>
 						<p>
-							<span>Link Immagine</span><input class="contact" type="text"
+							<span>Link Immagine</span><input class="contact" type="url"
 								name="prodotto_path" value="<%=prod.getPath()%>" />
 						</p>
 						<p style="padding-top: 15px">

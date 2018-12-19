@@ -18,10 +18,11 @@
 
 <!--Ultima versione di jQuery (minified) -->
 <script src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
-<!-- Ultima versione di jquery.validate (minfied) -->
+<!-- Ultima versione di jquery.validate (minfied) 
 <script
 	src="http://ajax.aspnetcdn.com/ajax/jquery.validate/1.14.0/jquery.validate.min.js"></script>
 <script type="text/javascript" src="js/validation.js"></script>
+-->
 </head>
 
 <body>
