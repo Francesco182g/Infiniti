@@ -13,8 +13,8 @@ public class GestioneUtenteTest {
 
 	//Dichiarazione delle variabili di istanza che permettono di controllare se il valore è presente all'interno del sistema
 	private static final String email= "Francesco@Garofalo.com";
-	private static final String nome= "Francesco";
-	private static final String cognome= "Garofalo";
+	private static final String nome= "Giovanni";
+	private static final String cognome= "Dario";
 	private static final String password= "Andrea85";
 	private static final String conferma_password= "Andrea85";
 	private static final String sesso= "u";
