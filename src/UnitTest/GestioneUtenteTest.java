@@ -12,7 +12,6 @@ import org.junit.Test;
 import org.junit.runners.MethodSorters;
 @FixMethodOrder(MethodSorters.NAME_ASCENDING)
 public class GestioneUtenteTest {
-
 	//Dichiarazione delle variabili di istanza che permettono di controllare se il valore è presente all'interno del sistema
 	private static final String email= "Francesco@Garofalo.com";
 	private static final String nome= "Giovanni";
