@@ -21,6 +21,7 @@ public class GestioneUtenteTest {
   private static final String conferma_password= "Andrea85";
   private static final String sesso= "u";
     
+  
   private static Utente utente;
   //Testo il metodo della registrazione
   @Test
