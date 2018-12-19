@@ -87,11 +87,11 @@
 					<section class="form_settings">
 						<p>
 							<span>Email</span><input class="contact" type="email"
-								name="user_email" value="" />
+								name="user_email" value="" pattern=".{5,40}{[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}}$" required />
 						</p>
 						<p>
 							<span>Password</span><input class="contact" type="password"
-								name="user_password" pattern=".{5,8}[a-zA-Z0-9]" value="" />
+								name="user_password"  pattern="[a-zA-Z0-9]{5,8}$" value="" required />
 						</p>
 						<p style="padding-top: 15px">
 							<span>&nbsp;</span><input class="submit" type="submit"

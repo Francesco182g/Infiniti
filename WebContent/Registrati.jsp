@@ -96,34 +96,34 @@
 						<br>
 						<p>
 							<span>Email</span><input class="contact" type="email"
-								name="user_email" value="" />
+								name="user_email" value="" placeholder="mail@mail.com" pattern=".{5,40}{[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}}$" required/>
 						</p>
 						<br>
 						<p>
 							<span>Nome</span><input class="contact" type="text"
-								name="user_nome" value="" />
+								name="user_nome" value="" placeholder="Nome" pattern=".{1,45}[a-zA-Z]" required/>
 						</p>
 						<br>
 						<p>
 							<span>Cognome</span><input class="contact" type="text"
-								name="user_cognome" value="" />
+								name="user_cognome" value="" placeholder="Nome" pattern=".{1,45}[a-zA-Z]" required/>
 						</p>
 						<br>
 						<p>
 							<span>Password</span><input class="contact" type="password"
-								name="user_password" id="user_password" value="" />
+								name="user_password" id="user_password" pattern="[a-zA-Z0-9]{5,8}$" required />
 						</p>
 						<br>
 						<p>
 							<span>Conferma Password</span><input class="contact"
-								type="password" name="user_confpassword" value="" />
+								type="password" name="user_confpassword" value="" pattern="[a-zA-Z0-9]{5,8}$" required/>
 						</p>
 						<br>
 						<p>Sesso:</p>
 
 						<p>
 							<span>Uomo</span><input class="checkbox" type="radio"
-								name="user_sesso" value="u" />
+								name="user_sesso" value="u" required/>
 						</p>
 						<p>
 							<span>Donna</span><input class="checkbox" type="radio"
