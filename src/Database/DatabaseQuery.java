@@ -34,7 +34,7 @@ public class DatabaseQuery {
 	private static String queryGetProdottoByUser;
 	private static String queryGetNumeroProdotto;
 	
-	//Query gestione offerte
+	//Query gestione Offerte
 	private static String queryGetOfferte;
 	private static String queryModificaProdotto;
 
