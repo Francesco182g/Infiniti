@@ -137,18 +137,18 @@
 						<br>
 						<p>
 							<span>Prezzo </span><input class="contact" type=number step=0.01
-								name="prodotto_prezzo" value="" placeholder="x.xx" />
+								name="prodotto_prezzo" value="" placeholder="x.xx" required />
 						</p>
 						<br>
 						<p>
 							<span>Condizione</span><input class="contact" type="text"
-								name="prodotto_codizione" value="" />
+								name="prodotto_codizione" value="" pattern="[a-zA-Z]" required/>
 						</p>
 						<br>
 						<p>
 							<span>Offerta </span><input class="contact" type="number"
 								min="0" max="100" name="prodotto_offerta" value="0"
-								placeholder="Percentuale offerta: 0-100, 0 non in offerta" />
+								placeholder="Percentuale offerta: 0-100, 0 non in offerta"/>
 						</p>
 						<br>
 						<p>

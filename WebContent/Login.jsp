@@ -91,7 +91,7 @@
 						</p>
 						<p>
 							<span>Password</span><input class="contact" type="password"
-								name="user_password" value="" />
+								name="user_password" pattern=".{5,8}[a-zA-Z0-9]" value="" />
 						</p>
 						<p style="padding-top: 15px">
 							<span>&nbsp;</span><input class="submit" type="submit"

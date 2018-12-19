@@ -71,7 +71,7 @@ public class RegistrazioneServlet extends HttpServlet {
 		String Sesso = request.getParameter("user_sesso");
 
 
-		String Foto = request.getParameter("user_foto");
+		String Foto = "Distattivato";
 
 
 		Utente u = new Utente(Email, Nome, Cognome, Password, Sesso, Foto);
@@ -82,7 +82,7 @@ public class RegistrazioneServlet extends HttpServlet {
 			request.getRequestDispatcher("Login.jsp").forward(request, response);
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
-			request.getRequestDispatcher("errorreg.jsp").forward(request, response);
+			request.getRequestDispatcher("Login.jsp").forward(request, response);
 			e.printStackTrace();
 		}
 

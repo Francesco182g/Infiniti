@@ -57,7 +57,7 @@ public class AddProdottoServlet extends HttpServlet {
 		BigDecimal Prezzo = BigDecimal.valueOf(price);
 		System.out.println(Prezzo);
 		
-		String Condizione = request.getParameter("prodotto_codizione");
+		String Condizione = request.getParameter("prodotto_condizione");
 		System.out.println(Condizione);
 		
 		String Path = request.getParameter("prodotto_path");
