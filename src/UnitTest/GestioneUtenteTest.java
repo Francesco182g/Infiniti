@@ -29,7 +29,7 @@ public class GestioneUtenteTest {
 	@Test
 	public void check_Registrazione() throws SQLException {
 		DatabaseQuery.addUser(utente);
-		Utente u= DatabaseQuery.getUtenteByID(email);
+		Utente u = DatabaseQuery.getUtenteByID(email);
 		System.out.println(u.toString());
 		assertEquals(u, utente);
 	}
