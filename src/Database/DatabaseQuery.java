@@ -1000,7 +1000,7 @@ public class DatabaseQuery {
 		queryAddOrdine = "INSERT INTO commerce1.ordine (idOrdine, idProdotto, idUtente, Data, Pagamento, Indirizzo, Note, Prezzo) VALUES (?,?,?,?,?,?,?,?)";
 		queryGetCarrello = "SELECT * FROM commerce1.carrello WHERE idUtente = ?";
 		queryEliminaCarrello = "DELETE FROM commerce1.carrello WHERE idUtente = ?";
-		queryEliminaProdottoCarrello = "DELETE FROM sql2200261.prodotto WHERE idProdotto = ?";
+		queryEliminaProdottoCarrello = "DELETE FROM commerce1.carrello WHERE idProdotto = ?";
 		queryGetNumeroProdotto = "SELECT * FROM commerce1.carrello WHERE idUtente = ?";
 		queryGetUtenti = "SELECT * FROM commerce1.user";
 		queryGetAdmin = "SELECT * FROM commerce1.admin WHERE idadmin = ?";
