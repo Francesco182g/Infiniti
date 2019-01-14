@@ -1,7 +1,9 @@
 package Servlet;
 
 import java.io.IOException;
+import java.math.BigDecimal;
 import java.sql.SQLException;
+import java.util.ArrayList;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -10,6 +12,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import Beans.Prodotto;
 import Beans.Utente;
 import Database.DatabaseQuery;
 
@@ -56,6 +59,19 @@ public class EliminaSelfUtente extends HttpServlet {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
+		
+		try {
+			ArrayList<Prodotto> prodotti = new ArrayList<>();
+			DatabaseQuery.getProdottiUtente(email);
+			
+			for (Prodotto p: prodotti) {
+				p.setQuantità(0);
+				DatabaseQuery.modifica_Prodotto(p);
+			}
+		}catch (SQLException e) {
+			e.printStackTrace();
+		}
+		
 		request.getRequestDispatcher("CarrelloLog.jsp").forward(request, response);
 	}
 		
