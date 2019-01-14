@@ -154,7 +154,7 @@
 						<br>
 						<p>
 							<span>Link Immagine</span><input class="contact" type="url"
-								name="prodotto_path" value="" />
+								name="prodotto_path" value="" pattern="https?://.+"  required/>
 						</p>
 						<p style="padding-top: 15px">
 							<span>&nbsp;</span><input class="insert" type="submit"
