@@ -56,7 +56,7 @@
 <!-- Ultima versione di jquery.validate (minfied) -->
 <script
 	src="http://ajax.aspnetcdn.com/ajax/jquery.validate/1.14.0/jquery.validate.min.js"></script>
-<script type="text/javascript" src="js/validationacq.js"></script>
+<!-- <script type="text/javascript" src="js/validationacq.js"></script>-->
 </head>
 
 <body>
@@ -178,23 +178,29 @@
 						<br>
 						<p>
 							<span>Pagamento</span><input class="contact" type="text"
-								name="pagamento" value="" placeholder="Inserisci tipo di pagamento: Carta di credito, contanti, ecc."  />
+								name="pagamento" value="" placeholder="Inserisci tipo di pagamento: Carta di credito, contanti, ecc."
+								  pattern="[a-zA-Z0-9]{5,45}$" required
+								  />
 						</p>
 						<br>
 						<p>
 							<span>Indirizzo</span><input class="contact" type="text"
-								name="indirizzo" value="" placeholder="Città, Provincia, Strada"  />
+								name="indirizzo" value="" placeholder="Città, Provincia, Strada"  
+									 pattern="[a-zA-Z0-9]{5,45}$" required
+								/>
 						</p>
 						<br>
 						<p>
 							<span>Note</span>
-							<textarea class="contact textarea" rows="8" cols="40"
-								name="descrizione" placeholder="Note aggiuntive" ></textarea>
+							<input class="contact textarea" type="text"
+								name="descrizione" placeholder="Note aggiuntive" 
+								 pattern="[a-zA-Z0-9]{5,100}$" required />
+									
 						</p>
 						<br>
 						<p style="padding-top: 15px">
 							<span>&nbsp;</span><input class="insert" type="submit"
-								name="contact_submitted" value="Acquista Prodotto" />
+								name="contact_submitted" value="Acquista Prodotto" required/>
 						</p>
 					</section>
 

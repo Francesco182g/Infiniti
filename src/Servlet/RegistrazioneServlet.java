@@ -36,36 +36,36 @@ public class RegistrazioneServlet extends HttpServlet {
 		String Email = request.getParameter("user_email");
 		System.out.println(Email);
 		if(Email.length() < 5 | Email.length() > 45) {
-			request.getRequestDispatcher("errorreg.jsp").forward(request, response);
+			request.getRequestDispatcher("Login.jsp").forward(request, response);
 		}
 
 
 		String Nome = request.getParameter("user_nome"); 
 		System.out.print(Nome);
 		if(Nome.length() < 1 | Nome.length() > 45) {
-			request.getRequestDispatcher("errorreg.jsp").forward(request, response);
+			request.getRequestDispatcher("Login.jsp").forward(request, response);
 		}
 
 		String Cognome = request.getParameter("user_cognome");
 		if(Cognome.length() < 1 | Cognome.length() > 45) {
-			request.getRequestDispatcher("errorreg.jsp").forward(request, response);
+			request.getRequestDispatcher("Login.jsp").forward(request, response);
 		}
 
 
 		String Password = request.getParameter("user_password");
 		if(Password.length() < 5 | Password.length() > 8) {
-			request.getRequestDispatcher("errorreg.jsp").forward(request, response);
+			request.getRequestDispatcher("Login.jsp").forward(request, response);
 		}
 
 		String confPassword = request.getParameter("user_confpassword");
 		if(confPassword.length() < 5 | confPassword.length() > 8) {
-			request.getRequestDispatcher("errorreg.jsp").forward(request, response);
+			request.getRequestDispatcher("Login.jsp").forward(request, response);
 		}
 		System.out.println(confPassword);
 
 		//Controlla che Password e confPassword siano uguali
 		if(Password!=confPassword) {
-			request.getRequestDispatcher("errorreg.jsp").forward(request, response);
+			request.getRequestDispatcher("Login.jsp").forward(request, response);
 		}
 
 		String Sesso = request.getParameter("user_sesso");
