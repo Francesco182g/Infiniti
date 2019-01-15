@@ -99,7 +99,7 @@
 						<tr>
 							<td><img width="100" height="100"
 								src=<%=prodotti.get(i).getPath()%> alt="Img ND"></td>
-							<input size="3" name="prodott" type="hidden" value="<%=prodotti.get(i).getIdProdotto()%>"/>
+							<input size="3" name="prodotto_id" type="hidden" value="<%=prodotti.get(i).getIdProdotto()%>"/>
 							<td><%=prodotti.get(i).getNome()%></td>
 							<td><%=prodotti.get(i).getPrezzo()%></td>
 							<td><%=prodotti.get(i).getQuantità()%></td>
