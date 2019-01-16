@@ -143,7 +143,7 @@
 						<br>
 						<p>
 							<span>Condizione</span><input class="contact" type="text"
-								name="prodotto_codizione" value="" pattern="[a-zA-Z0-9]{3,40}$" required/>
+								name="prodotto_condizione" value="" pattern="[a-zA-Z0-9]{3,40}$" required/>
 						</p>
 						<br>
 						<p>

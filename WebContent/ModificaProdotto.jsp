@@ -36,7 +36,7 @@
 <!-- Ultima versione di jquery.validate (minfied) -->
 <script
 	src="http://ajax.aspnetcdn.com/ajax/jquery.validate/1.14.0/jquery.validate.min.js"></script>
-<script type="text/javascript" src="js/validationprod.js"></script>
+<!--  <script type="text/javascript" src="js/validationprod.js"></script> -->
 </head>
 
 <body>
@@ -118,7 +118,7 @@
 								name="prodotto_id"  value="<%=prod.getIdProdotto()%>" />
 						<p>
 							<span>Nome</span><input class="contact" type="text"
-								name="prodotto_nome" disabled value="<%=prod.getNome()%> " />
+								name="prodotto_nome" readonly value="<%=prod.getNome()%> " />
 
 						</p>
 						<br>
@@ -146,7 +146,7 @@
 						<br>
 						<p>
 							<span>Condizione</span><input class="contact" type="text"
-								name="prodotto_codizione" value="<%=prod.getCondizione()%>" pattern="[a-zA-Z0-9]{3,40}$" required />
+								name="prodotto_condizione" value="<%=prod.getCondizione()%>" pattern="[a-zA-Z0-9]{3,40}$" required />
 						</p>
 						<br>
 						<p>
