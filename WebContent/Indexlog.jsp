@@ -255,7 +255,7 @@
 		<footer></footer>
 		<section id="footer">
 			Template fornito da: &copy; colour_blue, WebApplication creata da
-			&copy; Francesco Garofalo con la collaborazione di Anna Tomeo | <a
+			&copy; Francesco Garofalo attività di manutenzione con Antonio Fasulo | <a
 				href="http://validator.w3.org/check?uri=referer">HTML5</a> | <a
 				href="http://jigsaw.w3.org/css-validator/check/referer">CSS</a> | <a
 				href="AdminLogin.jsp">Accedi come Admin</a>
