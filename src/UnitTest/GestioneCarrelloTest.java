@@ -19,17 +19,25 @@ import Database.DatabaseQuery;
 public class GestioneCarrelloTest {
 
 	//Dichiarazione delle variabili di istanza che permettono di controllare se il valore è presente all'interno del sistema
-	private static final String email= "antonio@fasulo.it";
-	
+	private static final String email= "Francesco@Garofalo.com";
+	private static final String nome= "Giovanni";
+	private static final String cognome= "Dario";
+	private static final String password= "Andrea85";
+	private static final String conferma_password= "Andrea85";
+	private static final String sesso= "u";
+	private static Utente utente;
+
 	private static final int id_Carrello = 1;
 	private static final int id_Prodotto = 5;
-	
+
 	/*
 	 * Metodo che permette di testare sia l'aggiunta che il ritorno di un prodotto da un determinato carrello
 	 */
 	@Test
 	public void check1_AddCarrello() throws SQLException {
 		boolean check = false;
+		utente= new Utente(email, nome, cognome, password, sesso, "foto");
+		DatabaseQuery.addUser(utente);
 		DatabaseQuery.addCarrello(id_Prodotto, email);
 		ArrayList<Carrello> prodotti = DatabaseQuery.getCarrello(email);
 		for (Carrello c: prodotti) {
@@ -39,7 +47,7 @@ public class GestioneCarrelloTest {
 		}
 		assertEquals(true, check);
 	}
-	
+
 	/*
 	 * Metodo che permette di testare l'eliminazione di un prodotto da un determinato carrello
 	 */
@@ -58,16 +66,17 @@ public class GestioneCarrelloTest {
 		}
 		assertEquals(true, check);
 	}
-	
+
 	@Test
 	public void check3_CancelloCarrello () throws SQLException {
-		
-		
+
+		DatabaseQuery.delUser(email);
+
 		DatabaseQuery.delCarrello(email);
-		
+
 		ArrayList<Carrello> carrelli = DatabaseQuery.getCarrello(email);
-		
+
 		assertEquals(carrelli.size(), 0);
-		
+
 	}
 }
