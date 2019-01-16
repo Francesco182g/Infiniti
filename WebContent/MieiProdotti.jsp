@@ -156,7 +156,7 @@
 								<td><%=prodotti.get(i).getPrezzo()%></td>
 								<td><%=prodotti.get(i).getOfferta()%></td>								
 								<td><input type="image" id="addcarr" name="submitta"
-									value="addcarr" src="style/cestino.png" /></td>
+									value="addcarr" src="style/modifica.png" /></td>
 							</tr>
 						</form>
 						<%
