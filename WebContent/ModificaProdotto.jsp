@@ -129,8 +129,8 @@
 						<br>
 						<p>
 							<span>Descrizione</span>
-							<textarea class="contact textarea" rows="8" cols="40"
-								name="prodotto_descrizione" pattern="[a-zA-Z0-9.,]{5,100}$" required><%=prod.getDescrizione()%> </textarea>
+							<input class="contact textarea" 
+								name="prodotto_descrizione" pattern="[a-zA-Z0-9.,]{5,100}$" required value = "<%=prod.getDescrizione()%>" />
 						</p>
 						<br>
 						<p>
