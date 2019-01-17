@@ -1,0 +1,19 @@
+7,2
+cw 0,37
+cw 1,45
+cw 2,77
+cw 3,581
+cw 4,145
+cw 5,58
+cw 6,56
+0,0,URL#
+1,0,Name
+2,0,Click Delay [s]
+3,0,URL                                 
+4,0,POST data (or @filename@)
+5,0,Username
+6,0,Password
+0,1,1
+1,1,Ricerca
+2,1,10
+3,1,http://infinitiredbull.azurewebsites.net/Infiniti/CercaProdottiServlet?nomeProdotto=Napoli&search.x=23&search.y=25

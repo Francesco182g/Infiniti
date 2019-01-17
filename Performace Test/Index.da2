@@ -1,0 +1,18 @@
+7,2
+cw 0,37
+cw 1,61
+cw 2,77
+cw 3,199
+cw 4,145
+cw 5,58
+cw 6,56
+0,0,URL#
+1,0,Name
+2,0,Click Delay [s]
+3,0,URL                                 
+4,0,POST data (or @filename@)
+5,0,Username
+6,0,Password
+0,1,1
+1,1,HomePage
+3,1,http://infinitiredbull.azurewebsites.net/
