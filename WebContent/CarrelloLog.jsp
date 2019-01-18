@@ -19,10 +19,15 @@
 		email = utente.getEmail();
 		lista = DatabaseQuery.getCarrello(email);
 
-		System.out.println(lista);
+
 		//Check Quantità e add to array prod
 		for (int i = 0; i < lista.size(); i++) {
+			int j = 0;
 			Prodotto p = DatabaseQuery.getProdotto(lista.get(i).getIdProdotto());
+			if(p.getUtente() == email){
+				System.out.println("tolgo dal carrello");
+				DatabaseQuery.delProdottoCarrello(lista.get(i).getIdProdotto());
+			}
 			if(p.getQuantità() != 0){
 				prod.add(p);	
 			} else {

@@ -6,6 +6,7 @@ public class Carrello {
 
 	public Carrello(){}
 
+	
 	public Carrello(String idUtente, int idProdotto) {
 		super();
 		this.idUtente = idUtente;

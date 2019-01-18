@@ -3,6 +3,7 @@ package Beans;
 import java.math.BigDecimal;
 import java.sql.Date;
 
+
 public class Ordine {
 	private int idOrdine;
 	private int idProdotto;

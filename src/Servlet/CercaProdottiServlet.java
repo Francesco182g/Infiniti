@@ -47,6 +47,7 @@ public class CercaProdottiServlet extends HttpServlet {
 		try{
 			//System.out.println("NomeProdotto:" +nomeProdotto);
 			listProdotti = DatabaseQuery.cercaProdotti(nomeProdotto);
+			
 			//System.out.println(listProdotti.toString());
 			request.setAttribute("listaProdotti", listProdotti);
 			

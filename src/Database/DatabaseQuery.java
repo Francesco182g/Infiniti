@@ -105,6 +105,7 @@ public class DatabaseQuery {
 			}
 		}
 
+		
 		return true;
 	}
 
@@ -699,7 +700,10 @@ public class DatabaseQuery {
 		try{
 			connection = Database.getConnection();
 			psAddCarrello = connection.prepareStatement(queryAddCarrello);
-
+			
+			Prodotto p = DatabaseQuery.getProdotto(idProdotto);
+			if(!p.getUtente().equals(idUtente)) {
+				System.out.println("non sono uguali");
 			psAddCarrello.setString(1, idUtente);
 			psAddCarrello.setInt(2, idProdotto);
 
@@ -707,6 +711,7 @@ public class DatabaseQuery {
 
 			connection.commit();
 			System.out.println("Inserimento nel carrello Connessione...: da " +idUtente);
+			}
 		} finally {
 			try{
 				if(psAddCarrello != null)

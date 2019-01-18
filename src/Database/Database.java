@@ -14,6 +14,7 @@ import java.util.Properties;
  *
  */
 
+
 public class Database {
 	
 	private static String protocol;

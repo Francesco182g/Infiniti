@@ -138,7 +138,7 @@
 						<br>
 						<p>
 							<span>Prezzo </span><input class="contact" type=number step=0.01
-								name="prodotto_prezzo" value="" placeholder="x.xx" pattern="[0-9]+(\\.[0-9][0-9]?)?" required />
+								name="prodotto_prezzo" value="" placeholder="x,xx" pattern="[0-9]+(\\.[0-9][0-9]?)?" required />
 						</p>
 						<br>
 						<p>

@@ -86,6 +86,8 @@ public class AcquistaProdottoServlet extends HttpServlet {
 		for (int i = 0; i < lista.size(); i++) {
 			try {
 				Prodotto p = DatabaseQuery.getProdotto(lista.get(i).getIdProdotto());
+				p.setQuantità(p.getQuantità() - 1);
+				DatabaseQuery.modifica_Prodotto(p);
 				//modifica prezzo offerta
 				if(p.getOfferta()==0) {
 					Ordine o = new Ordine(0, p.getIdProdotto(), email, data, Pagamento, Indirizzo, Descrizione,  p.getPrezzo());
@@ -113,13 +115,13 @@ public class AcquistaProdottoServlet extends HttpServlet {
 
 			try {
 				DatabaseQuery.delCarrello(email);
-				request.getRequestDispatcher("MieiOrdini.jsp").forward(request, response);
+				request.getRequestDispatcher("Indexlog.jsp").forward(request, response);
 
 			} catch (SQLException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
 				System.out.println("ERRORE INSERIMENTO (Ordine già presente)");
-				request.getRequestDispatcher("MieiOrdini.jsp").forward(request, response);
+				request.getRequestDispatcher("Indexlog.jsp").forward(request, response);
 
 			}
 		}		

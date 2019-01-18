@@ -2,6 +2,7 @@ package Beans;
 
 public class Utente {
 	
+	
 	private String email;
 	private String Nome;
 	private String Cognome;

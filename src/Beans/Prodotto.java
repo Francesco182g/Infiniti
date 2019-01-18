@@ -2,6 +2,7 @@ package Beans;
 
 import java.math.BigDecimal;
 
+
 public class Prodotto {
 	private int idProdotto;
 	private String descrizione;

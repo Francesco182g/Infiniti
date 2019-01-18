@@ -2,6 +2,7 @@ package Servlet;
 
 import java.io.IOException;
 import java.sql.SQLException;
+import java.util.ArrayList;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -13,6 +14,8 @@ import javax.servlet.http.HttpSession;
 import Beans.Prodotto;
 import Beans.Utente;
 import Database.DatabaseQuery;
+
+
 
 /**
  * Servlet implementation class AddCarrelloServlet
@@ -50,16 +53,19 @@ public class AddCarrelloServlet extends HttpServlet {
 
 			try {
 				Prodotto p = DatabaseQuery.getProdotto(idProdotto);
-				if(p.getUtente() == user) {
+				System.out.println(p.getUtente() +"" +user);
+				if(p.getQuantità() == 0 ) {
+					System.out.println(p.getUtente() +"  " +user);
 					request.getRequestDispatcher("CarrelloLog.jsp").forward(request, response);
-				}
-				
+					System.out.println("Impossibile aggiungere prodotto al carrello, utente uguale");
+				} else {		
 				DatabaseQuery.addCarrello(idProdotto, user);
 				System.out.println("Servlet: Aggiungo al carrello " +user+ " id: " +idProdotto);
 				int c = DatabaseQuery.getCountCarrello(user);
 				session.setAttribute("carrello", c);
 				request.getRequestDispatcher("CarrelloLog.jsp").forward(request, response);
-			} catch (SQLException e) {
+				}
+				}catch (SQLException e) {
 				System.out.println("Impossibile aggiungere al carrello...");
 				e.printStackTrace();
 				request.getRequestDispatcher("CarrelloLog.jsp").forward(request, response);

@@ -7,6 +7,7 @@ public class Admin {
 	
 	public Admin() {}
 	
+	
 	public Admin(String userName, String password, int attivo) {
 		super();
 		this.userName = userName;

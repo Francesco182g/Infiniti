@@ -2,20 +2,21 @@
 	Infiniti
 	@copy Francesco Garofalo 2017
  -->
- 
+
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	import="java.util.*,Beans.*,Database.*,Servlet.*"%>
 
 <%
 	Utente utente = (Utente) session.getAttribute("user");
 	int count = 0;
+
 	if (utente != null) {
+
 		count = (Integer) session.getAttribute("carrello");
-		
 	} else {
 		response.sendRedirect("index.jsp");
+
 	}
-	
 %>
 
 <!DOCTYPE HTML>
@@ -29,8 +30,8 @@
 	content="text/html; charset=windows-1252" />
 <link rel="stylesheet" type="text/css" href="style/style.css"
 	title="style" />
-	<link rel="stylesheet" type="text/css" href="style/responsive.css"/>
-	
+<link rel="stylesheet" type="text/css" href="style/responsive.css" />
+
 </head>
 
 <body>
@@ -73,7 +74,8 @@
 				<h4></h4>
 				<h5>14/02/2017</h5>
 				<p>
-					Il sito simula un e-commerce non inserire dati per pagamento.<br /> <a href="https://www.redbullshop.com/en/">Store Reale</a>
+					Il sito simula un e-commerce non inserire dati per pagamento.<br />
+					<a href="https://www.redbullshop.com/en/">Store Reale</a>
 				</p>
 				<p></p>
 				<h3>Collegamenti Utili</h3>
@@ -114,8 +116,8 @@
 		</section>
 		<footer></footer>
 		<section id="footer">
-			Template fornito da: &copy; colour_blue, WebApplication
-			creata da &copy; Francesco Garofalo con la collaborazione di Anna Tomeo|  <a
+			Template fornito da: &copy; colour_blue, WebApplication creata da
+			&copy; Francesco Garofalo con la collaborazione di Anna Tomeo| <a
 				href="http://validator.w3.org/check?uri=referer">HTML5</a> | <a
 				href="http://jigsaw.w3.org/css-validator/check/referer">CSS</a> | <a
 				href="http://www.html5webtemplates.co.uk">design from
