@@ -106,12 +106,12 @@
 						<br>
 						<p>
 							<span>Cognome</span><input class="contact" type="text"
-								name="user_cognome" value="" placeholder="Nome" pattern=".{1,45}[a-zA-Z]" required/>
+								name="user_cognome" value="" placeholder="Cognome" pattern=".{1,45}[a-zA-Z]" required/>
 						</p>
 						<br>
 						<p>
 							<span>Password</span><input class="contact" type="password"
-								name="user_password" id="user_password" pattern="[a-zA-Z0-9]{5,8}$" required />
+								name="user_password" id="user_password" placeholder="a-z,A-Z,0-9, Min 5 Max8" pattern="[a-zA-Z0-9]{5,8}$" required />
 						</p>
 						<br>
 						<p>
