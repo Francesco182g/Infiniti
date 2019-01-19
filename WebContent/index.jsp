@@ -6,6 +6,7 @@
 <%@page import="Database.DatabaseQuery"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	import="java.util.*, java.math.*,Beans.*"%>
+	<%@page import="Servlet.VisualizzaOfferte"%>
 <%
 	Utente utente = (Utente) session.getAttribute("user");
 
@@ -20,7 +21,7 @@
 	
 	//Effettuo la query che mi permette di ritornare elementi
 	ArrayList<Prodotto> offerte= new ArrayList<>();
-	offerte= DatabaseQuery.cerca_Offerte();
+	offerte = VisualizzaOfferte.printOfferte();
 %>
 
 <!DOCTYPE HTML>

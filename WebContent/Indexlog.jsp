@@ -5,6 +5,7 @@
 
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	import="java.util.*,Beans.*, java.math.* ,Database.*,Servlet.*"%>
+	<%@page import="Servlet.VisualizzaOfferte"%>
 
 <%
 	Utente utente = (Utente) session.getAttribute("user");
@@ -35,7 +36,7 @@
 	}
 
 	ArrayList<Prodotto> offerte = new ArrayList<>();
-	offerte = DatabaseQuery.cerca_Offerte();
+	offerte = VisualizzaOfferte.printOfferte();
 %>
 
 <!DOCTYPE HTML>
