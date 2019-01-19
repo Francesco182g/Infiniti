@@ -12,9 +12,7 @@
 
 	if (utente != null) {
 		response.sendRedirect("Indexlog.jsp");
-		// SIMULA LA SESSIONE
-		//utente = new Utente("a","a","a","a",true,true);
-
+		
 	} else {
 
 	}
