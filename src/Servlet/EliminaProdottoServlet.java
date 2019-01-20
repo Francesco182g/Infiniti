@@ -40,14 +40,14 @@ public class EliminaProdottoServlet extends HttpServlet {
 
 		if(Prodotto == null){
 			System.out.println("Servlet: Valore null ricevuto dalla jsp");
-			request.getRequestDispatcher("MieiProdotti.jsp").forward(request, response);
+			request.getRequestDispatcher("index.jsp").forward(request, response);
 		} else {
 			System.out.println("Servlet: ricevuta richiesta modifica");
 			int idProdotto = Integer.parseInt(Prodotto);
 			
 			try {
 				DatabaseQuery.delProdotto(idProdotto);
-				request.getRequestDispatcher("MieiProdotti.jsp").forward(request, response);
+				request.getRequestDispatcher("index.jsp").forward(request, response);
 			} catch (SQLException e) {
 				e.printStackTrace();
 			}
