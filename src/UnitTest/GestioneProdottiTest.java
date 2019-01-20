@@ -52,11 +52,7 @@ public class GestioneProdottiTest {
 		
 		utente= new Utente(email, nome_utente, cognome, password, sesso, "foto");
 		DatabaseQuery.addUser(utente);
-		
-		ArrayList<Prodotto> prodotti_totali = new ArrayList<>();
-		prodotti_totali = DatabaseQuery.getProdotti();
-		int size_prima = prodotti_totali.size();
-		size_prodotti = prodotti_totali.size();
+		boolean check = false;
 		
 		System.out.println("Valore Totale iniziale: " + size_prodotti);
 		
@@ -72,12 +68,16 @@ public class GestioneProdottiTest {
 		p.setOfferta(offerta);
 		DatabaseQuery.addProdotto(p, email);
 		
-		System.out.println("Stampo il valore del prodotto creato: " + p.toString());
+		ArrayList<Prodotto> prodotti_totali = new ArrayList<>();
+		prodotti_totali = DatabaseQuery.getProdotti();
 		
-		Prodotto ritorno = DatabaseQuery.getProdotto(id_prodotto);
-		ritorno.setPrezzo(prezzo);
-		System.out.println("Stampo il prodotto di ritorno: " + ritorno.toString());
-		assertEquals(p.toString(), ritorno.toString());
+		for (Prodotto p: prodotti_totali) {
+			if (p.getIdProdotto() == id_prodotto) {
+				check = true;
+			}
+		}
+		
+		assertEquals(check, true);
 	}
 
 	//Test del metodo che permette di ricercare un prodotto
@@ -125,7 +125,7 @@ public class GestioneProdottiTest {
 	}
 	*/
 
-	//Test che ritorna i prodotti in offerta
+	//Test che verifica la correttezza dei prodotti in offerta
 	@Test
 	public void check5_GetOfferte() throws SQLException {
 		ArrayList<Prodotto> prodotti = DatabaseQuery.cerca_Offerte();
