@@ -53,8 +53,6 @@ public class EliminaSelfUtente extends HttpServlet {
 		try {
 			DatabaseQuery.delCarrello(email);
 			System.out.println("Servlet: Pulisco il carrello dell'user: "+email);
-			int c = DatabaseQuery.getCountCarrello(email);
-			session.setAttribute("carrello", c);
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -72,7 +70,7 @@ public class EliminaSelfUtente extends HttpServlet {
 			e.printStackTrace();
 		}
 		
-		request.getRequestDispatcher("CarrelloLog.jsp").forward(request, response);
+		request.getRequestDispatcher("index.jsp").forward(request, response);
 	}
 		
 	/**
