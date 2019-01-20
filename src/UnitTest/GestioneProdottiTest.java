@@ -55,6 +55,7 @@ public class GestioneProdottiTest {
 		
 		ArrayList<Prodotto> prodotti_totali = new ArrayList<>();
 		prodotti_totali = DatabaseQuery.getProdotti();
+		int size_prima = prodotti_totali.size();
 		size_prodotti = prodotti_totali.size();
 		
 		System.out.println("Valore Totale iniziale: " + size_prodotti);
@@ -70,17 +71,26 @@ public class GestioneProdottiTest {
 		p.setIdUtente(email);
 		p.setOfferta(offerta);
 		DatabaseQuery.addProdotto(p, email);
-		Prodotto risultato= DatabaseQuery.getProdotto(id_prodotto);
-		risultato.setPrezzo(prezzo);
-		p.setPrezzo(prezzo);
-		assertEquals(p.toString(), risultato.toString());
+		
+		System.out.println("Stampo il valore del prodotto creato: " + p.toString());
+		
+		Prodotto ritorno = DatabaseQuery.getProdotto(id_prodotto);
+		ritorno.setPrezzo(prezzo);
+		System.out.println("Stampo il prodotto di ritorno: " + ritorno.toString());
+		assertEquals(p.toString(), ritorno.toString());
 	}
 
 	//Test del metodo che permette di ricercare un prodotto
 	@Test
 	public void check2_RicercaProdotto() throws SQLException {
+		boolean check = true;
 		ArrayList<Prodotto> prodotti = DatabaseQuery.cercaProdotti(nome);
-		assertEquals(prodotti.get(0).getNome(), nome);
+		for (Prodotto p: prodotti) {
+			if (!p.getNome().equals(nome)) {
+				check = false;
+			}
+		}
+		assertEquals(check, true);
 	}
 
 	//Test che effettua il controllo del prodotto By_Id
@@ -96,9 +106,7 @@ public class GestioneProdottiTest {
 		ArrayList<Prodotto> prodotti= DatabaseQuery.getProdottiUtente(email);
 		boolean check= true;
 		for (Prodotto p: prodotti) {
-			if (p.getUtente().equals(email)) {
-				//Corretto
-			}else {
+			if (!p.getUtente().equals(email)) {
 				check= false;
 			}
 		}

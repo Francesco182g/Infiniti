@@ -65,7 +65,7 @@ public class GestioneCarrelloTest {
 		p.setCondizione(condizione);
 		p.setNome(nomeProd);
 		p.setPath(path);
-		p.setIdUtente(email);
+		//p.setIdUtente(email);
 		p.setOfferta(offerta);
 		
 		DatabaseQuery.addProdotto(p, email);

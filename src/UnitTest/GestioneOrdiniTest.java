@@ -14,6 +14,7 @@ import org.junit.Test;
 import org.junit.runners.MethodSorters;
 
 import Beans.Ordine;
+import Beans.Prodotto;
 import Beans.Utente;
 import Database.Database;
 import Database.DatabaseQuery;
@@ -33,15 +34,27 @@ public class GestioneOrdiniTest {
 
 	private static Utente utente;
 
+	//Variabili di istanza per un determinato prodotto
+	private static final int id_prodotto = 80;
+	private static final String descrizione = "Prodotto usato per il test";
+	private static final int quantità= 3;
+	BigDecimal prezzo = new BigDecimal(30.00);
+	private static final String tipo = "test tipo";
+	private static final String condizione = "usato";
+	private static final String nomeProd = "Tazza Napoli";
+	private static final String path= "test path";
+	//private static final String email= "andrea@bocelli.it";
+	private static final int offerta= 20;
+	private static Prodotto p = new Prodotto();
 
+	//Dichiarazioni delle variabili che permettono il settaggio di un determinato ordine
 	private static final int id_ordine = 5;
-	private static final int id_prodotto = 10;
 	//private static final String email = "francesco@garofalo.com";
 	private static final Date data = new Date(20, 12, 2018);
 	private static final String pagamento = "postepay";
 	private static final String indirizzo = "Via Avellino, 56";
 	private static final String note = "Sono nato a Napoli, quindi sono di Napoli";
-	private static final BigDecimal prezzo = new BigDecimal(30);
+	//private static final BigDecimal prezzo = new BigDecimal(30);
 
 	Ordine ordine= new Ordine (id_ordine, id_prodotto, email, data, pagamento, indirizzo, note, prezzo);
 
@@ -52,8 +65,22 @@ public class GestioneOrdiniTest {
 	public void check1_AddOrdine() throws SQLException {
 		boolean check = false;
 		utente= new Utente(email, nome, cognome, password, sesso, "foto");
+		//Inserisco il prodotto
+		p.setIdProdotto(id_prodotto);
+		p.setDescrizione(descrizione);
+		p.setQuantità(quantità);
+		p.setPrezzo(prezzo);
+		p.setTipo(tipo);
+		p.setCondizione(condizione);
+		p.setNome(nomeProd);
+		p.setPath(path);
+		p.setIdUtente(email);
+		p.setOfferta(offerta);
+
+		DatabaseQuery.addProdotto(p, email);
 		DatabaseQuery.addUser(utente);
 		DatabaseQuery.addOrdine(ordine);
+		
 		ArrayList<Ordine> ritorna_ordini= DatabaseQuery.getOrdiniUtente(email);
 		System.out.println(ritorna_ordini);
 		for (Ordine o: ritorna_ordini) {
@@ -96,5 +123,7 @@ public class GestioneOrdiniTest {
 
 		assertEquals(num_ordini, num_ordini1);
 		DatabaseQuery.delUser(email);
+		DatabaseQuery.delUser(email);
+		DatabaseQuery.delProdotto(id_prodotto);
 	}
 }
