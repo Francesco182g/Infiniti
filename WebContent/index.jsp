@@ -6,19 +6,19 @@
 <%@page import="Database.DatabaseQuery"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	import="java.util.*, java.math.*,Beans.*"%>
-	<%@page import="Servlet.VisualizzaOfferte"%>
+<%@page import="Servlet.VisualizzaOfferte"%>
 <%
 	Utente utente = (Utente) session.getAttribute("user");
 
 	if (utente != null) {
 		response.sendRedirect("Indexlog.jsp");
-		
+
 	} else {
 
 	}
-	
+
 	//Effettuo la query che mi permette di ritornare elementi
-	ArrayList<Prodotto> offerte= new ArrayList<>();
+	ArrayList<Prodotto> offerte = new ArrayList<>();
 	offerte = VisualizzaOfferte.printOfferte();
 %>
 
@@ -92,10 +92,11 @@
 				<form id="search" method="get" action="CercaProdottiServlet">
 					<p>
 						<input class="search" type="text" name="nomeProdotto"
-							placeholder="Cerca Prodotto..." pattern=".{1,50}[a-zA-Z0-9]+" required /> <input name="search"
-							type="image" style="border: 0; margin: 0 0 -9px 5px;"
-							src="style/search.png" alt="Search" title="Search" />
-							
+							placeholder="Cerca Prodotto..." pattern=".{1,50}[a-zA-Z0-9]+"
+							required /> <input name="search" type="image"
+							style="border: 0; margin: 0 0 -9px 5px;" src="style/search.png"
+							alt="Search" title="Search" />
+
 					</p>
 				</form>
 			</aside>
@@ -126,20 +127,33 @@
 				<form method="post" action="CercaProdottiServlet" id="search_form">
 					<p>
 						<input class="search" type="text" name="search_field"
-							placeholder="Cerca Prodotto..." pattern=".{1,50}[a-zA-Z0-9]+"/> <input name="search"
-							type="image" style="border: 0; margin: 0 0 -9px 5px;"
-							src="style/search.png" alt="Search" title="Search"  />
+							placeholder="Cerca Prodotto..." pattern=".{1,50}[a-zA-Z0-9]+" />
+						<input name="search" type="image"
+							style="border: 0; margin: 0 0 -9px 5px;" src="style/search.png"
+							alt="Search" title="Search" />
 					</p>
 				</form>
-				
-				
-				<% if (offerte.size()==0){ %>
-					<br><br><h3>Non sono presenti offerte</h3><br><br>
-				<%} else{ %>
-				
-					<br><br><h3>Ecco le nostre offerte</h3><br><br>
-					
-					<table class="table table-hover">
+
+
+				<%
+					if (offerte.size() == 0) {
+				%>
+				<br>
+				<br>
+				<h3>Non sono presenti offerte</h3>
+				<br>
+				<br>
+				<%
+					} else {
+				%>
+
+				<br>
+				<br>
+				<h3>Ecco le nostre offerte</h3>
+				<br>
+				<br>
+
+				<table class="table table-hover">
 					<thead class="th-center">
 						<tr>
 							<th>Foto Prodotto</th>
@@ -168,16 +182,17 @@
 							<td><%=offerte.get(i).getTipo()%></td>
 							<td><%=offerte.get(i).getPrezzo()%></td>
 							<td><%=offerte.get(i).getOfferta()%></td>
-							<% 
-							String prezzo_offerta= "Nessun Offerta";
-							if(offerte.get(i).getOfferta() == 0){
-							} else {
-								BigDecimal offerta = BigDecimal.valueOf(offerte.get(i).getOfferta());
-								BigDecimal prezzoNuovo= offerte.get(i).getPrezzo().multiply(offerta);
-								prezzoNuovo = prezzoNuovo.divide(BigDecimal.valueOf(100));
-								prezzoNuovo = offerte.get(i).getPrezzo().subtract(prezzoNuovo);
-								prezzo_offerta= "" + prezzoNuovo;
-							} %>
+							<%
+								String prezzo_offerta = "Nessun Offerta";
+										if (offerte.get(i).getOfferta() == 0) {
+										} else {
+											BigDecimal offerta = BigDecimal.valueOf(offerte.get(i).getOfferta());
+											BigDecimal prezzoNuovo = offerte.get(i).getPrezzo().multiply(offerta);
+											prezzoNuovo = prezzoNuovo.divide(BigDecimal.valueOf(100));
+											prezzoNuovo = offerte.get(i).getPrezzo().subtract(prezzoNuovo);
+											prezzo_offerta = "" + prezzoNuovo;
+										}
+							%>
 							<td><%=prezzo_offerta%></td>
 						</tr>
 						<%
@@ -185,9 +200,11 @@
 						%>
 					</tbody>
 				</table>
-				<% } %>
-				
-				
+				<%
+					}
+				%>
+
+
 				<script>
 					$("#go1").click(function() {
 						$("#block1").animate({
@@ -221,7 +238,8 @@
 					<li>Opera responsive tools</li>
 				</ul>
 
-				<h3>Ultimo Aggiornamento e Link Git</h3>
+				<p>20/01/2019 Implementate nuove Feature Visualizza Offerte e Modifica Prodotto.</p>
+				<h3>Link Git</h3>
 				<p>
 					Link a GitHub: <a href="https://github.com/Francesco182g/Infiniti">https://github.com/Francesco182g/Infiniti</a>
 				<p>19/08/2017 Fixato il delete self user.</p>
@@ -236,9 +254,10 @@
 		<footer></footer>
 		<section id="footer">
 			Copyright Template fornito da: &copy; colour_blue, WebApplication
-			creata da &copy; Francesco Garofalo e Antonio Fasulo | <a href="http://validator.w3.org/check?uri=referer">HTML5</a>
-			| <a href="http://jigsaw.w3.org/css-validator/check/referer">CSS</a>
-			| <a href="AdminLogin.jsp">Accedi come Admin</a>
+			creata da &copy; Francesco Garofalo e Antonio Fasulo | <a
+				href="http://validator.w3.org/check?uri=referer">HTML5</a> | <a
+				href="http://jigsaw.w3.org/css-validator/check/referer">CSS</a> | <a
+				href="AdminLogin.jsp">Accedi come Admin</a>
 		</section>
 	</section>
 </body>

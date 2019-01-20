@@ -240,8 +240,9 @@
 					<li>Internet Explorer 11 for mobile</li>
 					<li>Opera responsive tools</li>
 				</ul>
+				<p>20/01/2019 Implementate nuove Feature Visualizza Offerte e Modifica Prodotto.</p>
 
-				<h3>Ultimo Aggiornamento e Link Git</h3>
+				<h3>Link Git</h3>
 				<p>
 					Link a GitHub: <a href="https://github.com/Francesco182g/Infiniti">https://github.com/Francesco182g/Infiniti</a>
 				<p>19/08/2017 Fixato il delete self user.</p>
@@ -256,7 +257,7 @@
 		<footer></footer>
 		<section id="footer">
 			Template fornito da: &copy; colour_blue, WebApplication creata da
-			&copy; Francesco Garofalo attività di manutenzione con Antonio Fasulo | <a
+			&copy; Francesco Garofalo, attività di manutenzione con Antonio Fasulo | <a
 				href="http://validator.w3.org/check?uri=referer">HTML5</a> | <a
 				href="http://jigsaw.w3.org/css-validator/check/referer">CSS</a> | <a
 				href="AdminLogin.jsp">Accedi come Admin</a>
