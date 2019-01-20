@@ -184,14 +184,14 @@
 						<p>
 							<span>Pagamento</span><input class="contact" type="text"
 								name="pagamento" value="" placeholder="Inserisci tipo di pagamento: Carta di credito, contanti, ecc."
-								  pattern="[a-zA-Z0-9]{5,45}$" required
+								  pattern=".{5,45}[0-9a-zA-Z]" required
 								  />
 						</p>
 						<br>
 						<p>
 							<span>Indirizzo</span><input class="contact" type="text"
 								name="indirizzo" value="" placeholder="Città, Provincia, Strada"  
-									 pattern="[a-zA-Z0-9]{5,45}$" required
+									 pattern=".{5,45}[0-9a-zA-Z]" required
 								/>
 						</p>
 						<br>
@@ -199,7 +199,7 @@
 							<span>Note</span>
 							<input class="contact textarea" type="text"
 								name="descrizione" placeholder="Note aggiuntive" 
-								 pattern="[a-zA-Z0-9]{5,100}$" required />
+								 pattern=".{5,100}[0-9a-zA-Z]" required />
 									
 						</p>
 						<br>

@@ -116,18 +116,18 @@
 						<br>
 						<p>
 							<span>Nome</span><input class="contact" type="text"
-								name="prodotto_nome" value="" pattern="[a-zA-Z0-9]{2,45}$" required/>
+								name="prodotto_nome" value="" pattern=".{2,45}[0-9a-zA-Z]" required/>
 						</p>
 						<br>
 						<p>
 							<span>Tipo</span><input class="contact" type="text"
-								name="prodotto_tipo" value="" pattern="[a-zA-Z0-9]{2,45}$" required />
+								name="prodotto_tipo" value="" pattern=".{2,45}[0-9a-zA-Z]" required />
 						</p>
 						<br>
 						<p>
 							<span>Descrizione</span>
 							<input class="contact textarea"
-								name="prodotto_descrizione" pattern="[a-zA-Z0-9.,]{5,100}$" required/>
+								name="prodotto_descrizione" pattern=".{5,100}[0-9a-zA-Z.,]" required/>
 						</p>
 						<br>
 						<p>
