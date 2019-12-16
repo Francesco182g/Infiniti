@@ -9,7 +9,7 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>Errore Registrazione</title>
+<title>Errore Registrazione riptrfgfdgfdg</title>
 </head>
 <body>
 Registrazione Errata <a href="Registrati.jsp">Torna alla registrazione.</a>
