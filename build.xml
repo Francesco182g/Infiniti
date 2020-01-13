@@ -58,9 +58,6 @@
         <path refid="EAR Libraries.libraryclasspath"/>
         <pathelement location="WebContent/WEB-INF/lib/mysql-connector-java-5.1.38-bin.jar"/>
         <path refid="Apache Tomcat v8.5 [Apache Tomcat v8.5].libraryclasspath"/>
-        <pathelement location="WebContent/WEB-INF/lib/mockito-core-2.23.4.jar"/>
-        <pathelement location="WebContent/WEB-INF/lib/okhttp-3.11.0.jar"/>
-        <pathelement location="WebContent/WEB-INF/lib/okio-1.14.0.jar"/>
     </path>
     <target name="init">
         <mkdir dir="build/classes"/>
