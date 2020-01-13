@@ -21,6 +21,7 @@ import Beans.Utente;
 import Database.DatabaseQuery;
 
 /**
+ * Author FG
  * Servlet implementation class AcquistaProdottoServlet
  */
 
@@ -86,7 +87,7 @@ public class AcquistaProdottoServlet extends HttpServlet {
 		for (int i = 0; i < lista.size(); i++) {
 			try {
 				Prodotto p = DatabaseQuery.getProdotto(lista.get(i).getIdProdotto());
-				p.setQuantità(p.getQuantità() - 1);
+				p.setQuantitï¿½(p.getQuantitï¿½() - 1);
 				DatabaseQuery.modifica_Prodotto(p);
 				//modifica prezzo offerta
 				if(p.getOfferta()==0) {
@@ -120,7 +121,7 @@ public class AcquistaProdottoServlet extends HttpServlet {
 			} catch (SQLException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
-				System.out.println("ERRORE INSERIMENTO (Ordine già presente)");
+				System.out.println("ERRORE INSERIMENTO (Ordine giï¿½ presente)");
 				request.getRequestDispatcher("Indexlog.jsp").forward(request, response);
 
 			}
