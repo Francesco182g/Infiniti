@@ -1,6 +1,7 @@
 <!-- 
 	Infiniti
 	@copy Francesco Garofalo 2017
+	travis cover
  -->
 
 <!DOCTYPE HTML>
