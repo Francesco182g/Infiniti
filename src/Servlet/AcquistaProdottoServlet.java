@@ -87,7 +87,7 @@ public class AcquistaProdottoServlet extends HttpServlet {
 		for (int i = 0; i < lista.size(); i++) {
 			try {
 				Prodotto p = DatabaseQuery.getProdotto(lista.get(i).getIdProdotto());
-				p.setQuantitï¿½(p.getQuantitï¿½() - 1);
+				p.setQuantità(p.getQuantità() - 1);
 				DatabaseQuery.modifica_Prodotto(p);
 				//modifica prezzo offerta
 				if(p.getOfferta()==0) {
